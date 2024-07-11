@@ -23,6 +23,9 @@ const FilterMenuItem: React.FC<{
   item: FilterMenuType;
   onToggle: (id: number) => void;
 }> = ({ item, onToggle }) => {
+  
+
+  
   return (
     <div className="ml-4">
       {item.items ? (
@@ -39,9 +42,12 @@ const FilterMenuItem: React.FC<{
       )}
       {item.items && (
         <div className="ml-4">
-          {item.items.map((subItem) => (
+          {item.items.map((subItem) => {
+           
+            
+            return(
             <FilterMenuItem key={subItem.id} item={subItem} onToggle={onToggle} />
-          ))}
+          )})}
         </div>
       )}
     </div>
