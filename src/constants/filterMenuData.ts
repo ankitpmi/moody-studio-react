@@ -1,3 +1,5 @@
+import { Category } from "../services"
+
 export interface FilterMenuType {
   id: number
   label: string
@@ -8,16 +10,16 @@ export interface FilterMenuType {
 export const FilterMenuData: FilterMenuType[] = [
   {
     id: 1,
-    items: [{ id: 11, label: "New arrivals", isSelected: false }],
+    items: [{ id: 11, label: "New arrivals" }],
     label: "New arrivals",
   },
   {
     id: 2,
-    label: "Shop By Rooms",
+    label: "Shop By Category",
     items: [
       {
         id: 21,
-        label: "bedroom",
+        label: "Jewellery",
         // items: [
         //   { id: 211, label: "duvet cover sets" },
         //   { id: 212, label: "sheets" },
@@ -26,12 +28,22 @@ export const FilterMenuData: FilterMenuType[] = [
       },
       {
         id: 22,
-        label: "living room",
+        label: "Books",
        
       },
       {
         id: 23,
-        label: "child room",
+        label: "Fashion",
+       
+      },
+      {
+        id: 24,
+        label: Category.Appliances,
+       
+      },
+      {
+        id: 25,
+        label: Category.Furniture,
        
       },
     ],

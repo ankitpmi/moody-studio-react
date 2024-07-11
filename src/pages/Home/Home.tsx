@@ -7,7 +7,8 @@ import FilterMenu from './views/FilterMenu';
 
 const Home = () => {
   const {productList,filterMenuList,handleToggle} = useHome()
-  console.log('productList-1: ', productList);
+  // console.log('filterMenuList: ', filterMenuList);
+  // console.log('productList-1: ', productList);
   return (
     <div className={clsx(styles.home_container)}>
         <div className={clsx(styles.grid_layout)}>
@@ -17,7 +18,13 @@ const Home = () => {
           <div className={styles.contain_view_columns}>           
             <h1 className={clsx(styles.page_heading)}>BEDROOM</h1>
             <p className={clsx(styles.content_Text, 'my-9')}>ITS EASY TO TRANSFORM YOUR BEDROOM INTERIOR WITH OUR GREAT SELECTION OF ACCESSORIES.</p>
-            <ProductView products={productList} />
+            {
+              productList.length > 0 ?
+              <ProductView products={productList} />
+              :
+              <h1>No data found</h1>
+            }
+            
           </div>
         </div>
     </div>

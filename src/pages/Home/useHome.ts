@@ -17,6 +17,7 @@ const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] =
 export const useHome = () => {
 
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
+  const [productListClone, setProductListClone] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
 
   const handleToggle = (id: number) => {
@@ -29,6 +30,7 @@ export const useHome = () => {
         const productRes = await API.getAllProducts()        
         if (productRes.length > 0) {          
           setProductList(productRes)
+          setProductListClone(productRes)
         }
       } catch (error) {
         console.log('getAllProducs Err :: ', error);
@@ -41,6 +43,46 @@ export const useHome = () => {
   useEffect(() => {    
     getAllProducs()    
   }, [getAllProducs])
+
+  const filterProducts = useCallback(() => {
+    
+    let selectedCategories: string[] = [];
+    let selectedColors: string[] = [];
+
+    filterMenuList.forEach((filter) => {
+      if (filter.items) {
+        filter.items.forEach((item) => {
+          if (item.isSelected) {
+            if (filter.label === 'Shop By Category') {
+              selectedCategories.push(item.label);
+            } else if (filter.label === 'Color') {
+              selectedColors.push(item.label.toLowerCase()); // Ensure case consistency
+            }
+          }
+        });
+      }
+    });
+
+    let filtered = productListClone;
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter(product => selectedCategories.includes(product.category));
+    }
+
+    if (selectedColors.length > 0) {
+      filtered = filtered.filter(product => product.color.some(color => selectedColors.includes(color.toLowerCase())));
+    }
+
+    setProductList(filtered);
+       
+  },[filterMenuList, productListClone]);
+
+  useEffect(() => {
+    
+  
+    filterProducts();
+
+  }, [filterMenuList, filterProducts])
+  
   
 
   return{
