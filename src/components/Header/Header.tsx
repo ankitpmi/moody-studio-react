@@ -16,7 +16,7 @@ export const Header = () => {
               className={clsx(styles.nav_img)}
               alt="navbar"
             />
-            <h1>Test</h1>
+            
           </div>
           {/* <div className={clsx(styles.right_view, styles.row)}>
 

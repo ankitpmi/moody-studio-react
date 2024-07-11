@@ -39,12 +39,12 @@ const FilterMenuItem: React.FC<{
   return (
     <div className="ml-4">
       {item.items ? (
-        <div className="font-semibold text-gray-700 mt-4">
+        <div className={clsx(styles.category_title)}>
           {item.label}
         </div>
-      ) : (
+      ) : ( 
         <button onClick={() => onToggle(item.id)}>
-        <label className={clsx("block text-gray-600 cursor-pointer hover:text-black", item.isSelected === true && 'text-red-500')}>         
+        <label className={clsx('block text-gray-600 cursor-pointer hover:text-red-600',item.isSelected === true && 'text-red-500' )}>         
           {item.label}
         </label>
         </button>

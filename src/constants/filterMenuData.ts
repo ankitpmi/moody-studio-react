@@ -18,11 +18,11 @@ export const FilterMenuData: FilterMenuType[] = [
       {
         id: 21,
         label: "bedroom",
-        items: [
-          { id: 211, label: "duvet cover sets" },
-          { id: 212, label: "sheets" },
-          { id: 213, label: "bedspreads & blankets" },
-        ],
+        // items: [
+        //   { id: 211, label: "duvet cover sets" },
+        //   { id: 212, label: "sheets" },
+        //   { id: 213, label: "bedspreads & blankets" },
+        // ],
       },
       {
         id: 22,
