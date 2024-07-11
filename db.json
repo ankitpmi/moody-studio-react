@@ -1,0 +1,144 @@
+{
+  "products":[
+    {
+      "id": 1,
+      "name": "Sofa",
+      "category": "Furniture",
+      "price": 500,
+      "color": ["Blue", "Gray"]
+    },
+    {
+      "id": 2,
+      "name": "Dining Table",
+      "category": "Furniture",
+      "price": 700,
+      "color": ["Brown", "Black"]
+    },
+    {
+      "id": 3,
+      "name": "Chair",
+      "category": "Furniture",
+      "price": 100,
+      "color": ["Red", "White"]
+    },
+    {
+      "id": 4,
+      "name": "Bed",
+      "category": "Furniture",
+      "price": 800,
+      "color": ["White", "Black"]
+    },
+    {
+      "id": 5,
+      "name": "Bookshelf",
+      "category": "Furniture",
+      "price": 200,
+      "color": ["Brown", "White"]
+    },
+    {
+      "id": 6,
+      "name": "Coffee Table",
+      "category": "Furniture",
+      "price": 150,
+      "color": ["Black", "Glass"]
+    },
+    {
+      "id": 7,
+      "name": "TV Stand",
+      "category": "Furniture",
+      "price": 250,
+      "color": ["Black", "Brown"]
+    },
+    {
+      "id": 8,
+      "name": "Wardrobe",
+      "category": "Furniture",
+      "price": 600,
+      "color": ["White", "Gray"]
+    },
+    {
+      "id": 9,
+      "name": "Desk",
+      "category": "Furniture",
+      "price": 300,
+      "color": ["Black", "Brown"]
+    },
+    {
+      "id": 10,
+      "name": "Nightstand",
+      "category": "Furniture",
+      "price": 100,
+      "color": ["White", "Black"]
+    },
+    {
+      "id": 11,
+      "name": "Refrigerator",
+      "category": "Appliances",
+      "price": 1200,
+      "color": ["Silver", "Black"]
+    },
+    {
+      "id": 12,
+      "name": "Microwave",
+      "category": "Appliances",
+      "price": 200,
+      "color": ["White", "Black"]
+    },
+    {
+      "id": 13,
+      "name": "Washing Machine",
+      "category": "Appliances",
+      "price": 800,
+      "color": ["White", "Silver"]
+    },
+    {
+      "id": 14,
+      "name": "Dryer",
+      "category": "Appliances",
+      "price": 700,
+      "color": ["White", "Silver"]
+    },
+    {
+      "id": 15,
+      "name": "Oven",
+      "category": "Appliances",
+      "price": 600,
+      "color": ["Black", "Silver"]
+    },
+    {
+      "id": 16,
+      "name": "Dishwasher",
+      "category": "Appliances",
+      "price": 500,
+      "color": ["White", "Silver"]
+    },
+    {
+      "id": 17,
+      "name": "Air Conditioner",
+      "category": "Appliances",
+      "price": 1000,
+      "color": ["White", "Gray"]
+    },
+    {
+      "id": 18,
+      "name": "Heater",
+      "category": "Appliances",
+      "price": 300,
+      "color": ["White", "Black"]
+    },
+    {
+      "id": 19,
+      "name": "Blender",
+      "category": "Appliances",
+      "price": 100,
+      "color": ["Red", "Black"]
+    },
+    {
+      "id": 20,
+      "name": "Toaster",
+      "category": "Appliances",
+      "price": 50,
+      "color": ["White", "Black"]
+    }
+  ]  
+}
