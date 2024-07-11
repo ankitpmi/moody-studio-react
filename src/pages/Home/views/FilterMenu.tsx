@@ -1,28 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import clsx from "clsx"
 import styles from "../Home.module.css"
-import { FilterMenuData, FilterMenuType } from '../../../constants'
+import { FilterMenuType } from '../../../constants'
 
+interface FilterMenuProps {
+  filterMenuList: FilterMenuType[]
+  handleToggle: (id: number) => void
+}
 
-const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] => {
-  return data.map((item) => {
-    if (item.id === id) {
-      return { ...item, isSelected: !item.isSelected };
-    }
-    if (item.items) {
-      return { ...item, items: toggleSelection(item.items, id) };
-    }
-    return item;
-  });
-};
-
-const FilterMenu = () => {
-  const [filterMenuList, setFilterMenuList] = useState(FilterMenuData)
-
-  const handleToggle = (id: number) => {
-    setFilterMenuList((prevData) => toggleSelection(prevData, id));
-  };
-
+const FilterMenu = ({filterMenuList,handleToggle}: FilterMenuProps) => {
+  
   return (
     <div className={clsx(styles.filter_menu_container)}>      
         {filterMenuList.map((item) => (

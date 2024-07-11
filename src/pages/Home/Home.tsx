@@ -6,13 +6,13 @@ import ProductView from './views/ProductView';
 import FilterMenu from './views/FilterMenu';
 
 const Home = () => {
-  const {productList} = useHome()
+  const {productList,filterMenuList,handleToggle} = useHome()
   console.log('productList-1: ', productList);
   return (
     <div className={clsx(styles.home_container)}>
         <div className={clsx(styles.grid_layout)}>
           <div className={styles.filter_view_column}>
-            <FilterMenu />
+            <FilterMenu filterMenuList={filterMenuList}  handleToggle={handleToggle} />
           </div>
           <div className={styles.contain_view_columns}>           
             <h1 className={clsx(styles.page_heading)}>BEDROOM</h1>
