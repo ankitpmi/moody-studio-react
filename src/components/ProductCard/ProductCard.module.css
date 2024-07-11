@@ -1,6 +1,9 @@
 
 
 .card_view {
-  @apply bg-[#ecebe9]
+  
 }
 
+.card_img {
+  @apply max-h-[365px] object-contain bg-[#ecebe9] mx-auto
+}

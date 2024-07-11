@@ -17,7 +17,7 @@ export const ProductCard = React.memo(({name,p_id,
 }: ProductCardProps) => {
    return (
      <div className={clsx(styles.card_view)}>
-      <img src={img} alt={`img-${p_id}`} />
+      <img src={img} alt={`img-${p_id}`} className={clsx(styles.card_img)} />
 {name}
      </div>
    )
