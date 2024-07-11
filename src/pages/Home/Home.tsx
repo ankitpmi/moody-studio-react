@@ -15,7 +15,7 @@ const Home = () => {
             <FilterMenu filterMenuList={filterMenuList}  handleToggle={handleToggle} />
           </div>
           <div className={styles.contain_view_columns}>           
-            <h1 className={clsx(styles.page_heading)}>BEDROOM</h1>
+            <h1 className={clsx(styles.page_heading)}>Products</h1>
             <p className={clsx(styles.content_Text, 'my-9')}>ITS EASY TO TRANSFORM YOUR BEDROOM INTERIOR WITH OUR GREAT SELECTION OF ACCESSORIES.</p>
             {
               productList.length > 0 ?

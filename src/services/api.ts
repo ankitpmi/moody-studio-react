@@ -2,7 +2,7 @@ import axios, {AxiosInstance} from 'axios';
 
 import {ProductsRes} from './models';
 
-const API_URL = "http://localhost:3000/";
+const API_URL = "http://192.168.1.148:3000/";
 
 class APIhandler {
   axios: AxiosInstance;
