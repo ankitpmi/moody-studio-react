@@ -6,9 +6,9 @@ interface LayoutProps extends React.PropsWithChildren {}
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="bg-red-200">
+    <div className="bg-white">
       <Header />
-      <div className="h-full bg-gray-500">{children}</div>
+      <div className="h-full">{children}</div>
       <Footer />
     </div>
   );

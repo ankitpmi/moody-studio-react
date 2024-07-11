@@ -1,20 +1,32 @@
-import React from 'react'
-import clsx from 'clsx'
-import styles from '../Home.module.css'
+import React from "react"
+import clsx from "clsx"
+import styles from "../Home.module.css"
+import { ProductCard } from "../../../components"
+import { ProductsRes } from "../../../services"
 
-const ProductView = () => {
+interface ProductViewProps {
+  products: [] | ProductsRes[]
+}
+
+const ProductView = ({ products }: ProductViewProps) => {
   return (
     <div className={clsx(styles.product_view_container)}>
       <div className={clsx(styles.grid_layout, styles.product_grid_layout)}>
-        {
-         Array.from(Array(10).keys()).map((val) => {
+        {products.map((val) => {
           return (
             <div className={clsx(styles.product_container_columns)}>
-          Product - {val}
-        </div>
+              <ProductCard
+                key={val.id.toString()}
+                category={val.category}
+                color={val.color}
+                img={val.img}
+                name={val.name}
+                price={val.price}
+                p_id={val.id}
+              />
+            </div>
           )
-         })
-        }       
+        })}
       </div>
     </div>
   )

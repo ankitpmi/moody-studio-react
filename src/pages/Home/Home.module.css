@@ -1,7 +1,7 @@
 
 
 .home_container {
-  @apply bg-slate-100 container mx-auto px-6 
+  @apply bg-white container mx-auto px-6 
 }
 
 .grid_layout{
@@ -13,7 +13,7 @@
 }
 
 .contain_view_columns {
-  @apply lg:col-span-9 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left bg-blue-300
+  @apply lg:col-span-9 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left 
 }
 .page_heading {
   @apply text-black text-[44px] font-bold
@@ -23,12 +23,12 @@
 }
 
 .product_view_container {
-@apply bg-red-200
+@apply bg-white
 }
 
 .product_container_columns {
-  @apply lg:col-span-4 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left bg-blue-600
+  @apply lg:col-span-4 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left 
 }
 .product_grid_layout {
-  @apply gap-5
+  @apply gap-6
 }
