@@ -1,6 +1,6 @@
 
 .footer_main {
-  @apply bg-white
+  @apply bg-[#323334]
 }
 
 .footer_container {
@@ -12,14 +12,12 @@
 }
 
 .main_column {
-  @apply lg:col-span-3 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left
+  @apply lg:col-span-4 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left
 }
 
-.footer_img {
-  @apply w-[148px] h-[44px] mx-auto sm:mx-auto md:mx-auto lg:mx-0 xl:mx-0 2xl:mx-0
-}
+
 .footer_content{
-  @apply mt-4 text-[#13131399] text-base font-medium
+  @apply  text-[#FFFFFF80] text-base font-normal 
 }
 
 .list_columns {
@@ -27,33 +25,45 @@
 }
   
 .list_title {
- @apply text-[#1A202C] font-semibold text-xl   
+ @apply text-white text-base font-bold
 }
 
 .list_text {
- @apply my-4 text-[#13131399]
+ @apply my-2 text-[#FFFFFF80] text-[14px] font-light
 }
 
 .footer_divider {
-  @apply my-8
+  @apply my-8  border-[#FFFFFF50]
 }
 
-.clo_8 {
-  @apply lg:col-span-8 order-last sm:order-last md:order-last lg:order-first xl:order-first 2xl:order-first col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left 
-
-}
-.clo_6 {
-  @apply col-span-6  text-center sm:text-center md:text-center lg:text-right xl:text-right 2xl:text-right 
+.footer_heading {
+  @apply text-white text-[28px] font-bold
 }
 
-.footer_content_text{
-  @apply text-[#1A202C] font-semibold sm:text-base text-sm
+.address_text{
+@apply text-white font-bold text-base leading-[26px]
 }
 
-.col_4 {
-  @apply lg:col-span-4 col-span-12
+.day_text {
+  @apply text-[24px] text-[#FFFFFF80] font-normal
 }
 
-.grid_for_privacy_policy {
-@apply grid grid-cols-12
+.small_text{
+  @apply text-[#FFFFFF80] text-[14px] font-normal
+}
+
+.extra_small_text {
+  @apply text-[14px] text-[#FFFFFF80] font-normal
+}
+
+.text_white {
+  @apply text-white
+}
+
+.footer_content_text {
+  @apply text-[#FFFFFF90] text-[14px] font-light text-center 
+}
+
+.all_right_view {
+  @apply flex justify-center bg-black py-[16px]
 }

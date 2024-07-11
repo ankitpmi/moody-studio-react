@@ -18,7 +18,7 @@ export const Header = () => {
             />
             <h1>Test</h1>
           </div>
-          <div className={clsx(styles.right_view, styles.row)}>
+          {/* <div className={clsx(styles.right_view, styles.row)}>
 
             <div className={clsx(styles.avatar_view)}>
               <IoHeartSharp className={clsx(styles.nav_icon)} />
@@ -38,7 +38,7 @@ export const Header = () => {
                 className={clsx(styles.user_img)}
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

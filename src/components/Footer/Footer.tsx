@@ -1,7 +1,8 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 import clsx from "clsx"
-import { SVGs } from "../../assets"
 import styles from "./Footer.module.css"
+
 
 export const Footer = () => {
   return (
@@ -9,73 +10,128 @@ export const Footer = () => {
       <div className={clsx(styles.footer_container)}>
         <div className={clsx(styles.footer_grid_layout)}>
           <div className={styles.main_column}>
-            <img src={SVGs.Logo} className={styles.footer_img} alt="footer" />
-            <p className={clsx(styles.footer_content)}>
-              Our vision is to provide convenience and help increase your sales
-              business.
+            <h2 className={clsx(styles.footer_heading)}>URBAN OUTFITTERS</h2>
+            <p className={clsx(styles.footer_content, 'my-[40px]')}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+            </p>
+
+
+            <p className={clsx(styles.address_text)}>
+              121 king street, Melbourne 3000<br />
+              +61 3 8376 6284<br />
+              contact@urbanoutfitters.com
             </p>
           </div>
 
-          <div className={styles.main_column}></div>
+          {/* <div className={styles.main_column}></div> */}
 
           {/* 1 */}
           <div className={styles.list_columns}>
-            <h5 className={styles.list_title}>About</h5>
+            <h5 className={styles.list_title}>SHOPPING</h5>
             <ul className="mt-6">
-              <li className={styles.list_text}>How it works</li>
-              <li className={styles.list_text}>Featured</li>
-              <li className={styles.list_text}>Partnership</li>
-              <li className={styles.list_text}>Bussiness Relation</li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Your cart
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Your orders
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Compared items
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Wishlist items
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Shipping detail
+                </NavLink>
+              </li>
             </ul>
           </div>
 
           {/* 2 */}
           <div className={styles.list_columns}>
-            <h5 className={styles.list_title}>Community</h5>
+            <h5 className={styles.list_title}>MORE LINK</h5>
             <ul className="mt-6">
-              <li className={styles.list_text}>Events</li>
-              <li className={styles.list_text}>Blog</li>
-              <li className={styles.list_text}>Podcast</li>
-              <li className={styles.list_text}>Invite a friend</li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Blog
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Gift Center
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Buying Guides
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  New Arrivals
+                </NavLink>
+              </li>
+              <li className={styles.list_text}>
+                <NavLink to='/'>
+                  Clearance
+                </NavLink>
+              </li>
             </ul>
           </div>
 
           {/* 3 */}
-          <div className={styles.list_columns}>
-            <h5 className={styles.list_title}>Socials</h5>
-            <ul className="mt-6">
-              <li className={styles.list_text}>Discord</li>
-              <li className={styles.list_text}>Instagram</li>
-              <li className={styles.list_text}>Twitter</li>
-              <li className={styles.list_text}>Facebook</li>
-            </ul>
-          </div>
-        </div>
+          <div className={clsx(styles.main_column)}>
+            <h5 className={styles.list_title}>FROM THE BLOG</h5>
 
-        <hr className={styles.footer_divider} />
+            <div className="my-4">
+              <span className={clsx(styles.day_text)}>
+                26
+              </span>
+              <span className={clsx(styles.small_text, 'ml-1')}>May</span>
+              <p className={clsx( styles.footer_content, styles.text_white, 'my-[10px]')}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
 
-        <div className={clsx(styles.footer_grid_layout, )}>
-          <div className={clsx(styles.clo_8)}>
-            <p className={clsx(styles.footer_content_text)}>
-              ©2022 MORENT. All rights reserved
-            </p>
-          </div>
-          <div className={clsx(styles.col_4)}>
-            <div className={clsx(styles.grid_for_privacy_policy)}>
-              <div className={clsx(styles.clo_6)}>
-                <p className={clsx(styles.footer_content_text)}>
-                  Privacy & Policy
-                </p>
-              </div>
-              <div className={clsx(styles.clo_6)}>
-                <p className={clsx(styles.footer_content_text)}>
-                  Terms & Condition
-                </p>
-              </div>
+              <p className={clsx(styles.extra_small_text)}>
+              3 comments
+              </p>
             </div>
+            <hr className={styles.footer_divider} />
+            <div className="my-4">
+              <span className={clsx(styles.day_text)}>
+                27
+              </span>
+              <span className={clsx(styles.small_text, 'ml-1')}>May</span>
+              <p className={clsx( styles.footer_content, styles.text_white, 'my-[10px]')}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+
+              <p className={clsx(styles.extra_small_text)}>
+              3 comments
+              </p>
+            </div>           
           </div>
         </div>
+
+        
+
+       
       </div>
+      <div className={clsx(styles.all_right_view)}>   
+            <p className={clsx(styles.footer_content_text)}>
+            Urban Outfitters © – All rights reserved 
+            </p>
+        </div>
     </footer>
   )
 }

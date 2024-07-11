@@ -4,6 +4,7 @@ export interface ProductsRes {
   category: Category;
   price:    number;
   color:    string[];
+  img:      string
 }
 
 export enum Category {
