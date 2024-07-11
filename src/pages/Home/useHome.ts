@@ -33,8 +33,7 @@ export const useHome = () => {
           setProductListClone(productRes)
         }
       } catch (error) {
-        console.log('getAllProducs Err :: ', error);
-        
+        console.log('getAllProducs Err :: ', error);        
       }
     },
     [],

@@ -7,8 +7,7 @@ import FilterMenu from './views/FilterMenu';
 
 const Home = () => {
   const {productList,filterMenuList,handleToggle} = useHome()
-  // console.log('filterMenuList: ', filterMenuList);
-  // console.log('productList-1: ', productList);
+  
   return (
     <div className={clsx(styles.home_container)}>
         <div className={clsx(styles.grid_layout)}>
