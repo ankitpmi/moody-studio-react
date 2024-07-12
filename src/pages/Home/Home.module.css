@@ -1,7 +1,10 @@
 
 
 .home_container {
-  @apply bg-white container mx-auto px-6 
+  @apply bg-white
+}
+.grid_container {
+  @apply bg-white container mx-auto px-6 mt-[60px]
 }
 
 .grid_layout{
