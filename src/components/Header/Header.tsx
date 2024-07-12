@@ -2,7 +2,7 @@ import React from "react"
 import clsx from "clsx"
 import { IoHeartOutline,IoSearchOutline  } from "react-icons/io5";
 import { BsBucket } from "react-icons/bs";
-import { LuUser } from "react-icons/lu";
+import { LuUser, LuMenu } from "react-icons/lu";
 
 import { SVGs } from "../../assets"
 import styles from "./Header.module.css"
@@ -24,7 +24,8 @@ export const Header = () => {
           <IoSearchOutline className={clsx(styles.nav_icon)} />
           <LuUser className={clsx(styles.nav_icon)} />
           <BsBucket className={clsx(styles.nav_icon)} />
-          <IoHeartOutline className={clsx(styles.nav_icon)} />
+          <IoHeartOutline className={clsx(styles.nav_icon, styles.nav_icon_mobile)} />
+          <LuMenu className={clsx(styles.nav_icon, styles.bar_icon)} />
           </div>    
         </div>
         <NavBar />

@@ -7,7 +7,8 @@
 }
 
 .nav_img {
-  @apply w-[204px] h-[33px] mx-auto sm:mx-auto md:mx-auto lg:mx-0 xl:mx-0 2xl:mx-0
+  /* @apply w-[204px] h-[33px] bg-red-50 */
+  @apply w-[150px] h-[33px] sm:w-[150px] md:w-[160px] lg:w-[204px] xl:w-[204px] 2xl:w-[204px] 
 }
 
 .row {
@@ -18,6 +19,13 @@
   @apply flex-1 justify-between
 }
 
+.nav_icon_mobile {
+  @apply w-5 h-5 sm:w-5 sm:h-5 text-[#323334] ml-2 sm:ml-2 md:ml-4 lg:ml-9 xl:ml-9 2xl:ml-9 cursor-pointer hover:text-red-600 
+}
 .nav_icon {
-  @apply w-7 h-7 text-[##323334] ml-9 cursor-pointer hover:text-red-600
+  @apply md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-7 xl:h-7 2xl:w-7 2xl:h-7 text-[#323334] ml-2 sm:ml-2 md:ml-4 lg:ml-9 xl:ml-9 2xl:ml-9 cursor-pointer hover:text-red-600 
+}
+
+.bar_icon {
+  @apply flex sm:flex md:flex lg:hidden xl:hidden 2xl:hidden
 }
