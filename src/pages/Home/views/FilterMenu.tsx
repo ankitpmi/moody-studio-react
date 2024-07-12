@@ -67,12 +67,12 @@ const RenderColors: React.FC<{
   onToggle: (id: number) => void
 }> = ({ item, onToggle }) => {
   return (
-    <div className="ml-4 col-span-4">
+    <div className="ml-4 col-span-4 ">
       {item.items ? (
         <div className={clsx(styles.category_title)}>{item.label}</div>
       ) : (
         
-          <div className={clsx(item.isSelected && 'border-[2px]', 'h-[20px] w-[20px] mt-4')}>
+          <div className={clsx(item.isSelected && 'border-[2px] rounded border-gray-500 ', 'h-[26px] w-[26px] flex justify-center items-center mt-4 ')}>
             <button onClick={() => onToggle(item.id)}>
               <div
                 className="rounded h-[20px] w-[20px]"
