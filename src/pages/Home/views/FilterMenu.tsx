@@ -35,7 +35,7 @@ const FilterMenuItem: React.FC<{
       {item.items ? (
         <div className={clsx(styles.category_title)}>{item.label}</div>
       ) : (
-        <button onClick={() => onToggle(item.id)}>
+        <button onClick={() => onToggle(item.id)} className="my-1">
           <label
             className={clsx(
               "block text-gray-600 cursor-pointer hover:text-red-600",
@@ -67,7 +67,7 @@ const RenderColors: React.FC<{
   onToggle: (id: number) => void
 }> = ({ item, onToggle }) => {
   return (
-    <div className="ml-4 col-span-4 ">
+    <div className="ml-4 col-span-2 ">
       {item.items ? (
         <div className={clsx(styles.category_title)}>{item.label}</div>
       ) : (
@@ -82,7 +82,7 @@ const RenderColors: React.FC<{
           </div>
       )}
       {item.items && (
-        <div className="ml-4 grid md:grid-cols-12 grid-cols-1 gap-0 ">
+        <div className="ml-4 grid md:grid-cols-12 grid-cols-1 gap-0">
           {item.items.map((subItem) => {
             return (
               <RenderColors

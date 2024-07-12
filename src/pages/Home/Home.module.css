@@ -41,5 +41,5 @@
   }
 
 .category_title{ 
-  @apply font-bold text-[20px] text-[#323334] mt-4
+  @apply font-bold text-[20px] text-[#323334] mt-6 mb-2
 }

@@ -59,6 +59,17 @@ export const FilterMenuData: FilterMenuType[] = [
       { id: 35, label: "black" },
       { id: 36, label: "red" },
       { id: 37, label: "Brown" },
+      { id: 38, label: "#EB5757" },
+      { id: 39, label: "green" },
+      { id: 40, label: "purple" },
+      { id: 41, label: "pink" },
+      { id: 42, label: "white" },
+      { id: 43, label: "lime" },
+      { id: 44, label: "cyan" },
+      { id: 45, label: "magenta" },
+      { id: 46, label: "maroon" },
+      { id: 47, label: "navy" },
+      { id: 48, label: "olive" }
     ],
   },
 ]
