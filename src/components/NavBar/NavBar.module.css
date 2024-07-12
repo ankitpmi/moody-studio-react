@@ -16,5 +16,5 @@
 }
 
 .link_text {
-  @apply font-bold text-[16px] text-[#323334]
+  @apply font-bold text-[16px] text-[#323334] hover:text-red-600
 }

@@ -19,5 +19,5 @@
 }
 
 .nav_icon {
-  @apply w-7 h-7 text-[##323334] ml-9 cursor-pointer
+  @apply w-7 h-7 text-[##323334] ml-9 cursor-pointer hover:text-red-600
 }
