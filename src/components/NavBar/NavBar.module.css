@@ -4,7 +4,7 @@
 }
 
 .nav_divider {
-  @apply border-[#323334] hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex
+  @apply border-[#323334] 
 }
 
 .nav_link_view{
@@ -20,9 +20,18 @@
 }
 
 .mobile_menu_container {
-  @apply flex lg:hidden xl:hidden 2xl:hidden 
+  @apply flex my-4 lg:hidden xl:hidden 2xl:hidden transition-transform duration-1000 ease-in-out transform -translate-y-full;
+  /* @apply flex lg:hidden xl:hidden 2xl:hidden transition-transform duration-1000 ease-in-out; */
 }
 
 .link_text_mobile {
   @apply my-1 sm:my-1 md:my-1 lg:my-0 xl:my-0 2xl:my-0
+}
+
+.menu_open {
+  @apply translate-y-0;
+}
+
+.hide {
+  @apply hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex
 }

@@ -32,24 +32,24 @@ export const NavBar = ({showMenu}: NavBarProps) => {
 
   return (
     <div className={clsx(styles.nav_container)}>
-      <hr className={clsx(styles.nav_divider)} />
+      <hr className={clsx(styles.nav_divider, !showMenu && styles.hide)} />
       <div className={clsx(styles.nav_link_view)}>
           <div className={clsx(styles.row)}>
             {
               renderLink()
             }
           </div>
-      </div>
-      <hr className={clsx(styles.nav_divider)} />
+      </div>      
       {
         showMenu && <>
-        <div className={clsx(styles.mobile_menu_container)}>
+        <div className={clsx(styles.mobile_menu_container, showMenu && styles.menu_open)}>
           <div className='flex flex-col justify-center items-center w-full'>
             {renderLink()}
           </div>
         </div>
         </>
       }
+      <hr className={clsx(styles.nav_divider, !showMenu && styles.hide)} />
     </div>
   )
 }
