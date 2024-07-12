@@ -7,33 +7,17 @@
 }
 
 .nav_img {
-  @apply w-[148px] h-[44px] mx-auto sm:mx-auto md:mx-auto lg:mx-0 xl:mx-0 2xl:mx-0
+  @apply w-[204px] h-[33px] mx-auto sm:mx-auto md:mx-auto lg:mx-0 xl:mx-0 2xl:mx-0
 }
 
 .row {
   @apply flex items-center 
 }
 
-.left_view {
+.space_between {
   @apply flex-1 justify-between
 }
 
-.right_view {
-  @apply flex-1 justify-end
-}
-
-.user_img {
-  @apply h-11 w-11 object-contain
-}
-
-.avatar_view {
-  @apply w-11 h-11 rounded-full overflow-hidden border border-[#C3D4E966] flex justify-center items-center ml-5
-}
-
-.avatar_img_view {
-  @apply w-11 h-11 rounded-full overflow-hidden ml-5
-}
-
 .nav_icon {
-  @apply w-6 h-6 text-[#596780]
+  @apply w-7 h-7 text-[##323334] ml-9 cursor-pointer
 }

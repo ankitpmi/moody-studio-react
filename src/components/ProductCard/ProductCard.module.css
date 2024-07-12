@@ -5,7 +5,7 @@
 }
 
 .card_img {
-  @apply max-h-[365px] object-contain mx-auto
+  @apply max-h-[365px] object-contain mx-auto select-none 
 }
 
 .card_title {

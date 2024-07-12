@@ -1,21 +1,33 @@
 import React from "react"
 import clsx from "clsx"
+import { IoHeartOutline,IoSearchOutline  } from "react-icons/io5";
+import { BsBucket } from "react-icons/bs";
+import { LuUser } from "react-icons/lu";
+
 import { SVGs } from "../../assets"
 import styles from "./Header.module.css"
+import { NavBar } from "../NavBar/NavBar";
 
 export const Header = () => {
   return (
     <nav className={clsx(styles.nav_main)}>
       <div className={clsx(styles.nav_container)}>
         <div className={clsx(styles.row)}>
-          <div className={clsx(styles.left_view, styles.row)}>
+          <div className={clsx(styles.space_between, styles.row)}>
             <img
               src={SVGs.Logo}
               className={clsx(styles.nav_img)}
               alt="navbar"
             />            
-          </div>        
+          </div>    
+          <div className={clsx(styles.row)}>
+          <IoSearchOutline className={clsx(styles.nav_icon)} />
+          <LuUser className={clsx(styles.nav_icon)} />
+          <BsBucket className={clsx(styles.nav_icon)} />
+          <IoHeartOutline className={clsx(styles.nav_icon)} />
+          </div>    
         </div>
+        <NavBar />
       </div>
     </nav>
   )
