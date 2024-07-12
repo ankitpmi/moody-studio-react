@@ -72,7 +72,7 @@ const RenderColors: React.FC<{
         <div className={clsx(styles.category_title)}>{item.label}</div>
       ) : (
         
-          <div className={clsx(item.isSelected && 'border-[2px] rounded border-gray-500 ', 'h-[26px] w-[26px] flex justify-center items-center mt-4 ')}>
+          <div className={clsx(item.isSelected && 'border-[2px] rounded border-gray-500', 'h-[26px] w-[26px] flex justify-center items-center mt-4 hover:border-[1px] rounded border-gray-400')}>
             <button onClick={() => onToggle(item.id)}>
               <div
                 className="rounded h-[20px] w-[20px]"
