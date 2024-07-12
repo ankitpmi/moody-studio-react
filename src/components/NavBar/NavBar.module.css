@@ -4,11 +4,11 @@
 }
 
 .nav_divider {
-  @apply border-[#323334]
+  @apply border-[#323334] hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex
 }
 
 .nav_link_view{
-  @apply my-6 container 
+  @apply my-6 container hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex
 }
 
 .row {
@@ -17,4 +17,12 @@
 
 .link_text {
   @apply font-bold text-[16px] text-[#323334] hover:text-red-600
+}
+
+.mobile_menu_container {
+  @apply flex lg:hidden xl:hidden 2xl:hidden 
+}
+
+.link_text_mobile {
+  @apply my-1 sm:my-1 md:my-1 lg:my-0 xl:my-0 2xl:my-0
 }

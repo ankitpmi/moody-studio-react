@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import clsx from "clsx"
 import { IoHeartOutline,IoSearchOutline  } from "react-icons/io5";
 import { BsBucket } from "react-icons/bs";
@@ -9,6 +9,12 @@ import styles from "./Header.module.css"
 import { NavBar } from "../NavBar/NavBar";
 
 export const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMobileMenu = () => {    
+    setShowMenu(!showMenu);
+  };
+
   return (
     <nav className={clsx(styles.nav_main)}>
       <div className={clsx(styles.nav_container)}>
@@ -25,10 +31,13 @@ export const Header = () => {
           <LuUser className={clsx(styles.nav_icon)} />
           <BsBucket className={clsx(styles.nav_icon)} />
           <IoHeartOutline className={clsx(styles.nav_icon, styles.nav_icon_mobile)} />
-          <LuMenu className={clsx(styles.nav_icon, styles.bar_icon)} />
+          <button onClick={toggleMobileMenu}>
+
+          <LuMenu className={clsx(styles.nav_icon, styles.bar_icon)}  />
+          </button>
           </div>    
         </div>
-        <NavBar />
+        <NavBar showMenu={showMenu} />        
       </div>
     </nav>
   )

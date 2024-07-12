@@ -1,6 +1,6 @@
 
 .footer_main {
-  @apply bg-[#323334]
+  @apply bg-[#323334] mt-10
 }
 
 .footer_container {

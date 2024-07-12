@@ -14,24 +14,42 @@ const NavLinks = [
   'CONTACT US '
 ]
 
-export const NavBar = () => {
+interface NavBarProps {
+  showMenu: boolean
+}
+
+export const NavBar = ({showMenu}: NavBarProps) => {
+
+  const renderLink = () => {
+    return NavLinks.map(val => {
+      return(
+        <NavLink className={clsx(styles.link_text, styles.link_text_mobile)} to={'/'}>
+          {val}
+        </NavLink>
+      )
+    })
+  }
+
   return (
     <div className={clsx(styles.nav_container)}>
       <hr className={clsx(styles.nav_divider)} />
       <div className={clsx(styles.nav_link_view)}>
           <div className={clsx(styles.row)}>
             {
-              NavLinks.map(val => {
-                return(
-                  <NavLink className={clsx(styles.link_text)} to={'/'}>
-                    <p>{val}</p>
-                  </NavLink>
-                )
-              })
+              renderLink()
             }
           </div>
       </div>
       <hr className={clsx(styles.nav_divider)} />
+      {
+        showMenu && <>
+        <div className={clsx(styles.mobile_menu_container)}>
+          <div className='flex flex-col justify-center items-center w-full'>
+            {renderLink()}
+          </div>
+        </div>
+        </>
+      }
     </div>
   )
 }
