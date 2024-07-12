@@ -1,0 +1,20 @@
+
+.nav_container {
+  @apply mt-5
+}
+
+.nav_divider {
+  @apply border-[#323334]
+}
+
+.nav_link_view{
+  @apply my-9 container 
+}
+
+.row {
+@apply flex flex-1 items-center justify-evenly mx-[50px] 
+}
+
+.link_text {
+  @apply font-bold text-[16px] text-[#323334]
+}

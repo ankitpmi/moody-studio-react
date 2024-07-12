@@ -1,6 +1,6 @@
 
 .offerBannerContainer {
-  @apply bg-[#DCE1DA] py-[44px]
+  @apply bg-[#DCE1DA] py-[44px] mt-12
 }
 
 .content_view {
