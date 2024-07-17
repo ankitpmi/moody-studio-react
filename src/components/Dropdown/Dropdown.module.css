@@ -13,7 +13,7 @@
 }
 
 .option_view {
-  @apply z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ml-1 mr-4
+  @apply z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700  mr-8
 }
 
 .option_item {
@@ -22,4 +22,8 @@
 
 .option_ul{
   @apply py-2 text-sm text-gray-700 dark:text-gray-200
+}
+
+.option_btn {
+  @apply h-full w-full hover:text-red-600
 }

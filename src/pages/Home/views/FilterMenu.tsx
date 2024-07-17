@@ -10,6 +10,7 @@ interface FilterMenuProps {
 }
 
 const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
+  
   return (
     <div className={clsx(styles.filter_menu_container)}>
       <div className={clsx(styles.filter_menu_render_view)}>

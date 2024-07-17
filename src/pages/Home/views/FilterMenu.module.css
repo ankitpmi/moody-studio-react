@@ -16,7 +16,8 @@
   width:100%;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  @apply  flex flex-grow lg:hidden xl:hidden 2xl:hidden py-1
+
+  @apply  flex flex-grow lg:hidden xl:hidden 2xl:hidden py-1 pb-10
 }
 
 .filter_menu_render_view_responsive::-webkit-scrollbar {
