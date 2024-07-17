@@ -1,9 +1,9 @@
 .nav_main {
-  @apply bg-white
+  @apply bg-white sticky top-0 sm:sticky md:sticky lg:relative xl:relative 2xl:relative
 }
 
 .nav_container {
-  @apply container mx-auto py-9 px-6 
+  @apply container mx-auto py-9 px-6
 }
 
 .nav_img {
