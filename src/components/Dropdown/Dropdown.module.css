@@ -1,7 +1,7 @@
 
 
 .dropdown_view {
-  @apply text-[#323334] border  focus:ring-1 focus:outline-none focus:ring-red-400 font-normal rounded-lg text-sm px-4 py-1 text-center flex items-center mr-4
+  @apply text-[#323334] border  focus:ring-1 focus:outline-none focus:ring-red-400 font-normal rounded-lg text-sm px-4 py-1 text-center flex items-center ml-1 mr-4
 }
 
 .dropdown_icon {
@@ -10,4 +10,16 @@
 
 .dropdown_container {
 @apply min-w-fit
+}
+
+.option_view {
+  @apply z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ml-1 mr-4
+}
+
+.option_item {
+  @apply block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white
+}
+
+.option_ul{
+  @apply py-2 text-sm text-gray-700 dark:text-gray-200
 }

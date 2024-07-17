@@ -72,16 +72,7 @@ export const FilterMenuData: FilterMenuType[] = [
       { id: 48, label: "olive" }
     ],
   },
-  {
-    id: 4,
-    // items: [{ id: 11, label: "New arrivals" }],
-    label: "Test-1",
-  },
-  {
-    id: 5,
-    // items: [{ id: 11, label: "New arrivals" }],
-    label: "Test-2",
-  },
+  
 ]
 
 
