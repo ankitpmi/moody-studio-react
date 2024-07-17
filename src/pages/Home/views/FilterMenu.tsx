@@ -1,6 +1,6 @@
 import React from "react"
 import clsx from "clsx"
-import styles from "../Home.module.css"
+import styles from "./FilterMenu.module.css"
 import { FilterMenuType } from "../../../constants"
 
 interface FilterMenuProps {
@@ -11,17 +11,27 @@ interface FilterMenuProps {
 const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
   return (
     <div className={clsx(styles.filter_menu_container)}>
-      {filterMenuList.map((item) => {
-        if (item.id === 3) {
-          return (
-            <RenderColors key={item.id} item={item} onToggle={handleToggle} />
-          )
-        } else {
-          return (
-            <FilterMenuItem key={item.id} item={item} onToggle={handleToggle} />
-          )
-        }
-      })}
+      <div className={clsx(styles.filter_menu_render_view)}>
+        {filterMenuList.map((item) => {
+          if (item.id === 3) {
+            return (
+              <RenderColors key={item.id} item={item} onToggle={handleToggle} />
+            )
+          } else {
+            return (
+              <FilterMenuItem
+                key={item.id}
+                item={item}
+                onToggle={handleToggle}
+              />
+            )
+          }
+        })}
+      </div>
+      {/* For small devices */}
+      <div className={clsx(styles.filter_menu_render_view_responsive)}>
+        <h1>Mobile view</h1>
+      </div>
     </div>
   )
 }
@@ -71,15 +81,18 @@ const RenderColors: React.FC<{
       {item.items ? (
         <div className={clsx(styles.category_title)}>{item.label}</div>
       ) : (
-        
-          <div className={clsx(item.isSelected && 'border-[2px] rounded border-gray-500', 'h-[26px] w-[26px] flex justify-center items-center mt-4 hover:border-[1px] rounded border-gray-400')}>
-            <button onClick={() => onToggle(item.id)}>
-              <div
-                className="rounded h-[20px] w-[20px]"
-                style={{ backgroundColor: item.label }}
-              />
-            </button>
-          </div>
+        <div
+          className={clsx(
+            item.isSelected && "border-[2px] rounded border-gray-500",
+            "h-[26px] w-[26px] flex justify-center items-center mt-4 hover:border-[1px] rounded border-gray-400"
+          )}>
+          <button onClick={() => onToggle(item.id)}>
+            <div
+              className="rounded h-[20px] w-[20px]"
+              style={{ backgroundColor: item.label }}
+            />
+          </button>
+        </div>
       )}
       {item.items && (
         <div className="ml-4 grid md:grid-cols-8 lg:grid-cols-8 xl:grid-cols-12 2xl:grid-cols-12 grid-cols-1 gap-0">
@@ -92,7 +105,7 @@ const RenderColors: React.FC<{
               />
             )
           })}
-          </div>
+        </div>
       )}
     </div>
   )

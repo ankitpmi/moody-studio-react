@@ -12,7 +12,7 @@
 }
 
 .filter_view_column {
-  @apply lg:col-span-3 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex
+  @apply lg:col-span-3 col-span-12 text-center sm:text-center md:text-center lg:text-left xl:text-left 2xl:text-left sticky top-24 
 }
 
 .contain_view_columns {
@@ -34,12 +34,4 @@
 }
 .product_grid_layout {
   @apply gap-6
-}
-
-.filter_menu_container {
-  @apply bg-white
-  }
-
-.category_title{ 
-  @apply font-bold text-[20px] text-[#323334] mt-6 mb-2
 }

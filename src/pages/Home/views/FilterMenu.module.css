@@ -1,0 +1,16 @@
+.filter_menu_container {
+  @apply bg-green-100 
+}
+
+
+.category_title{ 
+  @apply font-bold text-[20px] text-[#323334] mt-6 mb-2
+}
+
+.filter_menu_render_view {
+  @apply hidden sm:hidden md:hidden lg:block xl:block 2xl:block
+}
+
+.filter_menu_render_view_responsive {
+  @apply flex lg:hidden xl:hidden 2xl:hidden
+}
