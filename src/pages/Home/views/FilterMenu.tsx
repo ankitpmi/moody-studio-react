@@ -82,7 +82,7 @@ const RenderColors: React.FC<{
           </div>
       )}
       {item.items && (
-        <div className="ml-4 grid md:grid-cols-12 grid-cols-1 gap-0">
+        <div className="ml-4 grid md:grid-cols-8 lg:grid-cols-8 xl:grid-cols-12 2xl:grid-cols-12 grid-cols-1 gap-0">
           {item.items.map((subItem) => {
             return (
               <RenderColors
