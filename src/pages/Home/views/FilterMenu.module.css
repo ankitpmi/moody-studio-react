@@ -1,5 +1,5 @@
 .filter_menu_container {
-  @apply bg-white
+  @apply bg-white mt-[2px]
 }
 
 
