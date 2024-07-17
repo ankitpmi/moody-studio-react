@@ -1,0 +1,13 @@
+
+
+.dropdown_view {
+  @apply text-[#323334] border  focus:ring-1 focus:outline-none focus:ring-red-400 font-normal rounded-lg text-sm px-4 py-1 text-center flex items-center mr-4
+}
+
+.dropdown_icon {
+  @apply w-4 h-4 ml-4
+}
+
+.dropdown_container {
+@apply min-w-fit
+}

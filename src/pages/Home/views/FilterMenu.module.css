@@ -1,5 +1,5 @@
 .filter_menu_container {
-  @apply bg-green-100 
+  @apply bg-white
 }
 
 
@@ -12,5 +12,13 @@
 }
 
 .filter_menu_render_view_responsive {
-  @apply flex lg:hidden xl:hidden 2xl:hidden
+  overflow-x: auto;
+  width:100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  @apply  flex flex-grow lg:hidden xl:hidden 2xl:hidden py-1
+}
+
+.filter_menu_render_view_responsive::-webkit-scrollbar {
+  display: none;
 }

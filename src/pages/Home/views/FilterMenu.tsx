@@ -2,6 +2,7 @@ import React from "react"
 import clsx from "clsx"
 import styles from "./FilterMenu.module.css"
 import { FilterMenuType } from "../../../constants"
+import { Dropdown } from "../../../components"
 
 interface FilterMenuProps {
   filterMenuList: FilterMenuType[]
@@ -29,8 +30,10 @@ const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
         })}
       </div>
       {/* For small devices */}
-      <div className={clsx(styles.filter_menu_render_view_responsive)}>
-        <h1>Mobile view</h1>
+      <div className={clsx(styles.filter_menu_render_view_responsive)}>       
+        {filterMenuList.map((item) => {
+          return <Dropdown key={item.id} item={item} onToggle={handleToggle} />
+        })}
       </div>
     </div>
   )
