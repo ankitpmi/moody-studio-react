@@ -1,1 +1,7 @@
-export {default as Home} from './Home/Home'
+import React from 'react';
+
+const Home = React.lazy(() => import('./Home/Home'));
+
+export {
+  Home
+}

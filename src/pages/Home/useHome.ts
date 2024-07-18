@@ -40,7 +40,9 @@ export const useHome = () => {
   )
   
   useEffect(() => {    
+
     getAllProducs()    
+
   }, [getAllProducs])
 
   const filterProducts = useCallback(() => {
