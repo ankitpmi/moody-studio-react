@@ -19,6 +19,7 @@ export const useHome = () => {
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [productListClone, setProductListClone] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleToggle = (id: number) => {
     setFilterMenuList((prevData) => toggleSelection(prevData, id));
@@ -27,12 +28,15 @@ export const useHome = () => {
   const getAllProducs = useCallback(
     async() => {
       try {
+        setIsLoading(true)
         const productRes = await API.getAllProducts()        
         if (productRes.length > 0) {          
           setProductList(productRes)
           setProductListClone(productRes)
         }
+        setIsLoading(false)
       } catch (error) {
+        setIsLoading(false)
         console.log('getAllProducs Err :: ', error);        
       }
     },
@@ -89,6 +93,7 @@ export const useHome = () => {
   return{
     productList,
     filterMenuList,
-    handleToggle
+    handleToggle,
+    isLoading
   }
 }

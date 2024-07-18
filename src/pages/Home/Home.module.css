@@ -35,3 +35,15 @@
 .product_grid_layout {
   @apply gap-6
 }
+
+.no_data_container {
+  @apply col-span-12 text-center
+}
+
+.no_data_found_img {
+  @apply h-60 w-60 mx-auto
+}
+
+.no_data_title {
+  @apply text-[36px] font-medium text-[#323334]
+}

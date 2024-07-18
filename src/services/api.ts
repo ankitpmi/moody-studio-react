@@ -17,7 +17,7 @@ class APIhandler {
       const response = await this.axios.get<ProductsRes[]>(
         'products'
       );
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // await new Promise(resolve => setTimeout(resolve, 5000));
       return response.data;
     } catch (error) {
       return Promise.reject(error);
