@@ -1,10 +1,14 @@
 import React from "react";
-import { Home } from "../pages";
+import { Home, Cart } from "../pages";
 
 
 export const appRoutes = [
   {
     path: "/",
     component: Home,
+  },
+  {
+    path: "/cart",
+    component: Cart,
   }
 ]
