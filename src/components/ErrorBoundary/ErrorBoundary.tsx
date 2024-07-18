@@ -23,9 +23,7 @@ class ErrorBoundary extends Component<Props, State> {
     console.error("Uncaught error:", error, errorInfo);
   }
 
-  public render() {
-    console.log('this.state.hasError ::: ', this.state.hasError);
-    
+  public render() {        
     if (this.state.hasError) {
       return <h1>Sorry.. there was an error</h1>;
     }

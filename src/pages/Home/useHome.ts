@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { API,ProductsRes } from "../../services";
 import { FilterMenuData, FilterMenuType } from "../../constants";
+import { useProductsStore } from "../../store";
 
 const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] => {
   return data.map((item) => {
@@ -15,8 +16,7 @@ const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] =
 };
 
 export const useHome = () => {
-
-  const [productList, setProductList] = useState<[]| ProductsRes[]>([])
+  const {productData,setProductData} = useProductsStore()  
   const [productListClone, setProductListClone] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
@@ -31,7 +31,7 @@ export const useHome = () => {
         setIsLoading(true)
         const productRes = await API.getAllProducts()        
         if (productRes.length > 0) {          
-          setProductList(productRes)
+          setProductData(productRes)
           setProductListClone(productRes)
         }
         setIsLoading(false)
@@ -40,7 +40,7 @@ export const useHome = () => {
         console.log('getAllProducs Err :: ', error);        
       }
     },
-    [],
+    [setProductData],
   )
   
   useEffect(() => {    
@@ -77,21 +77,17 @@ export const useHome = () => {
       filtered = filtered.filter(product => product.color.some(color => selectedColors.includes(color.toLowerCase())));
     }
 
-    setProductList(filtered);
-       
-  },[filterMenuList, productListClone]);
+    setProductData(filtered);       
+  },[filterMenuList, productListClone, setProductData]);
 
-  useEffect(() => {
-    
-  
+  useEffect(() => {      
     filterProducts();
-
   }, [filterMenuList, filterProducts])
   
   
 
   return{
-    productList,
+    productData,
     filterMenuList,
     handleToggle,
     isLoading
