@@ -2,13 +2,14 @@ import React, {Suspense} from 'react'
 import {  Route, Routes, useLocation } from "react-router-dom";
 
 import { appRoutes } from "./routes";
-import { Layout } from "../components";
+import { ErrorBoundary, Layout } from "../components";
 
 
 export const Main = () => {
   const location = useLocation();
   return (
     <Layout>
+      <ErrorBoundary>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Routes location={location}>
           {appRoutes.map((route) => {
@@ -28,6 +29,7 @@ export const Main = () => {
           })}
         </Routes>
       </Suspense>
+      </ErrorBoundary>
     </Layout>
   )
 }
