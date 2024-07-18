@@ -20,7 +20,7 @@ export const ShimmerLoader = ({ numOfRender = 5 }: ShimmerLoaderProps) => {
               <Skeleton className={clsx(styles.card_title)} />
               <div className={clsx(styles.color_view)}>
                 {[1, 2, 3].map((col) => {
-                  return <Skeleton circle className={clsx(styles.color_dot)} />
+                  return <Skeleton key={col.toString()} circle className={clsx(styles.color_dot)} />
                 })}
               </div>
               <Skeleton className={clsx(styles.card_amount)} />

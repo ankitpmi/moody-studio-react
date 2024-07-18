@@ -23,6 +23,7 @@ export const ProductCard = React.memo(
             {color.map((col) => {
               return (
                 <div
+                key={col.toString()}
                   className={clsx(
                     styles.color_dot,
                     col.toLocaleLowerCase() == "white" &&

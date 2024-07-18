@@ -43,7 +43,7 @@ const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
 const FilterMenuItem: React.FC<{
   item: FilterMenuType
   onToggle: (id: number) => void
-}> = ({ item, onToggle }) => {
+}> = React.memo(({ item, onToggle }) => {
   return (
     <div className="ml-4">
       {item.items ? (
@@ -74,12 +74,12 @@ const FilterMenuItem: React.FC<{
       )}
     </div>
   )
-}
+})
 
 const RenderColors: React.FC<{
   item: FilterMenuType
   onToggle: (id: number) => void
-}> = ({ item, onToggle }) => {
+}> = React.memo(({ item, onToggle }) => {
   return (
     <div className="ml-4 col-span-2 ">
       {item.items ? (
@@ -113,6 +113,6 @@ const RenderColors: React.FC<{
       )}
     </div>
   )
-}
+})
 
 export default React.memo(FilterMenu)

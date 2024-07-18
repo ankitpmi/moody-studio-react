@@ -14,7 +14,7 @@ const ProductView = ({ products, isLoading }: ProductViewProps) => {
   const renderProductList = useCallback(() => {
     return products.map((val) => {
       return (
-        <div className={clsx(styles.product_container_columns)}>
+        <div key={val.id.toString()} className={clsx(styles.product_container_columns)}>
           <ProductCard
             key={val.id.toString()}
             category={val.category}
@@ -30,9 +30,9 @@ const ProductView = ({ products, isLoading }: ProductViewProps) => {
   }, [products])
 
   const renderSkaletonLoader = useCallback(() => {
-    return Array.from({ length: 10 }, (_, index) => index).map((_) => {
+    return Array.from({ length: 10 }, (_, index) => index).map((val) => {
       return (
-        <div className={clsx(styles.product_container_columns)}>
+        <div key={val.toString()} className={clsx(styles.product_container_columns)}>
           <ShimmerLoader />
         </div>
       )

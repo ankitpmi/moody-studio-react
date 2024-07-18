@@ -16,23 +16,23 @@ const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] =
 };
 
 export const useHome = () => {
-  const {productData,setProductData} = useProductsStore()  
-  const [productListClone, setProductListClone] = useState<[]| ProductsRes[]>([])
+
+  const {productData,setProductData} = useProductsStore()
+  const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleToggle = (id: number) => {
+  const handleToggle = useCallback((id: number) => {    
     setFilterMenuList((prevData) => toggleSelection(prevData, id));
-  };
+  },[]);
 
   const getAllProducs = useCallback(
     async() => {
       try {
         setIsLoading(true)
         const productRes = await API.getAllProducts()        
-        if (productRes.length > 0) {          
-          setProductData(productRes)
-          setProductListClone(productRes)
+        if (productRes.length > 0) {      
+          setProductData(productRes)              
         }
         setIsLoading(false)
       } catch (error) {
@@ -44,9 +44,7 @@ export const useHome = () => {
   )
   
   useEffect(() => {    
-
     getAllProducs()    
-
   }, [getAllProducs])
 
   const filterProducts = useCallback(() => {
@@ -68,7 +66,7 @@ export const useHome = () => {
       }
     });
 
-    let filtered = productListClone;
+    let filtered = [...productData];
     if (selectedCategories.length > 0) {
       filtered = filtered.filter(product => selectedCategories.includes(product.category));
     }
@@ -77,17 +75,32 @@ export const useHome = () => {
       filtered = filtered.filter(product => product.color.some(color => selectedColors.includes(color.toLowerCase())));
     }
 
-    setProductData(filtered);       
-  },[filterMenuList, productListClone, setProductData]);
+    setProductList(filtered);
+       
+  },[filterMenuList, productData]);
 
-  useEffect(() => {      
-    filterProducts();
-  }, [filterMenuList, filterProducts])
+  useEffect(() => {        
+    let hasRun = false;        
+    if (!hasRun) {      
+      filterProducts();
+      hasRun = true;      
+    }
+    
+    return () => {
+      hasRun = false;
+    };
+  }, [filterProducts])
   
+
+  useEffect(() => {
+    if (productData.length > 0) {      
+      setProductList(productData);
+    }    
+  }, [productData])
   
 
   return{
-    productData,
+    productList,
     filterMenuList,
     handleToggle,
     isLoading

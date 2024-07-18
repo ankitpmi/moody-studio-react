@@ -32,6 +32,7 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
     return NavLinks.map((val) => {
       return (
         <NavLink
+          key={val.toString()}
           className={clsx(styles.link_text, styles.link_text_mobile)}
           to={"/"}>
           {val}
@@ -39,8 +40,6 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
       )
     })
   }
-
-  console.log("contentRef :: ", contentHeight)
 
   return (
     <div className={clsx(styles.nav_container)}>
