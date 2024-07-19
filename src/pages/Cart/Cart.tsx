@@ -8,7 +8,7 @@ const Cart = () => {
   const renderCartList = useCallback(
     () => {
       return cartList.map((cart) => {
-        return <CartItem />
+        return <CartItem key={cart.id.toString()} productImg={cart.img} productAmt={cart.price} productName={cart.name} productQty={cart.qty} />
       })
     },
     [cartList],
