@@ -7,6 +7,7 @@ export const useCart = () => {
   const {cartData} = useCartStore()
   const {productData} = useProductsStore()
   const [cartList, setCartList] = useState<CartProductTypr[] | []>([])
+  const [sumOfAllProducts, setSumOfAllProducts] = useState<number>(0)
 
   const filterCardData = useCallback(
     () => {
@@ -28,12 +29,32 @@ export const useCart = () => {
   )
   
 
+  const sumOfAllProductsHandler = useCallback(
+    () => {
+      let sumResult  = 0
+      cartList.map(item => {
+        const amt = item.qty * item.price
+        sumResult = sumResult + amt
+      })
+
+      setSumOfAllProducts(sumResult)
+    },
+    [cartList],
+  )
+  
+
   useEffect(() => {
     filterCardData()    
   }, [filterCardData])
+
+  useEffect(() => {
+    sumOfAllProductsHandler()      
+  }, [cartList, sumOfAllProductsHandler])
+  
   
 
   return{
-    cartList
+    cartList,
+    sumOfAllProducts
   }
 }

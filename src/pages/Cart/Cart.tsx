@@ -4,7 +4,7 @@ import CartItem from './views/CartItem';
 import OrderSummary from './views/OrderSummary';
 
 const Cart = () => {
-  const { cartList } = useCart()
+  const { cartList, sumOfAllProducts } = useCart()
   const renderCartList = useCallback(
     () => {
       return cartList.map((cart) => {
@@ -26,7 +26,7 @@ const Cart = () => {
                 {renderCartList()}
               </div>  
             </div>
-            <OrderSummary />
+            <OrderSummary totalAmtOfProducts={sumOfAllProducts} />
           </div>
         </div>
       </section>
