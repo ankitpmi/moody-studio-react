@@ -10,10 +10,11 @@ interface ProductCardProps {
   color: string[]
   img: string
   p_id: number
+  cartBtnHandler: () => void
 }
 
 export const ProductCard = React.memo(
-  ({ name, p_id, img, price, color }: ProductCardProps) => {
+  ({ name, p_id, img, price, color, cartBtnHandler }: ProductCardProps) => {
     return (
       <div className={clsx(styles.card_view)}>
         <img src={img} alt={`img-${p_id}`} className={clsx(styles.card_img)} />
@@ -34,7 +35,13 @@ export const ProductCard = React.memo(
               )
             })}
           </div>
+          <div className="flex justify-between items-center ">
+
           <h1 className={clsx(styles.card_amount)}>{price}$</h1>
+          <button onClick={cartBtnHandler} type="button" className="py-2.5 px-5 me-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200  hover:text-red-600 focus:z-10">
+            Add to cart
+            </button>
+          </div>
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { API,ProductsRes } from "../../services";
 import { FilterMenuData, FilterMenuType } from "../../constants";
-import { useProductsStore } from "../../store";
+import { useCartStore, useProductsStore } from "../../store";
 
 const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] => {
   return data.map((item) => {
@@ -18,6 +18,7 @@ const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] =
 export const useHome = () => {
 
   const {productData,setProductData} = useProductsStore()
+  const {setCartData} = useCartStore()
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
@@ -25,6 +26,14 @@ export const useHome = () => {
   const handleToggle = useCallback((id: number) => {    
     setFilterMenuList((prevData) => toggleSelection(prevData, id));
   },[]);
+
+  const onClickCartBtn = useCallback(
+    (productId: number) => {
+      setCartData(productId)
+    },
+    [setCartData],
+  )
+  
 
   const getAllProducs = useCallback(
     async() => {
@@ -42,10 +51,6 @@ export const useHome = () => {
     },
     [setProductData],
   )
-  
-  useEffect(() => {    
-    getAllProducs()    
-  }, [getAllProducs])
 
   const filterProducts = useCallback(() => {
     
@@ -97,12 +102,17 @@ export const useHome = () => {
       setProductList(productData);
     }    
   }, [productData])
+
+  useEffect(() => {    
+    getAllProducs()    
+  }, [getAllProducs])
   
 
   return{
     productList,
     filterMenuList,
     handleToggle,
-    isLoading
+    isLoading,
+    onClickCartBtn
   }
 }

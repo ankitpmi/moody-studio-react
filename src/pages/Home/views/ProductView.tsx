@@ -8,9 +8,10 @@ import { IMG } from "../../../assets"
 interface ProductViewProps {
   products: [] | ProductsRes[]
   isLoading: boolean
+  onClickCartBtn: (pId: number) => void
 }
 
-const ProductView = ({ products, isLoading }: ProductViewProps) => {
+const ProductView = ({ products, isLoading, onClickCartBtn }: ProductViewProps) => {
   const renderProductList = useCallback(() => {
     return products.map((val) => {
       return (
@@ -23,11 +24,12 @@ const ProductView = ({ products, isLoading }: ProductViewProps) => {
             name={val.name}
             price={val.price}
             p_id={val.id}
+            cartBtnHandler={() => onClickCartBtn(val.id)}
           />
         </div>
       )
     })
-  }, [products])
+  }, [onClickCartBtn, products])
 
   const renderSkaletonLoader = useCallback(() => {
     return Array.from({ length: 10 }, (_, index) => index).map((val) => {

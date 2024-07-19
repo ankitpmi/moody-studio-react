@@ -7,7 +7,7 @@ import FilterMenu from './views/FilterMenu';
 import { OfferBanner } from '../../components';
 
 const Home = () => {
-  const {productList,filterMenuList,handleToggle, isLoading} = useHome()
+  const {productList,filterMenuList,handleToggle, isLoading, onClickCartBtn} = useHome()
   
   return (
     <div className={clsx(styles.home_container)}>
@@ -21,7 +21,7 @@ const Home = () => {
             <h1 className={clsx(styles.page_heading)}>Products</h1>
             <p className={clsx(styles.content_Text, 'my-9')}>Its easy to transform your bedroom interior with our great selection of accessories.</p>
             
-              <ProductView products={productList} isLoading={isLoading} />
+              <ProductView products={productList} isLoading={isLoading} onClickCartBtn={onClickCartBtn} />
              
                        
           </div>
