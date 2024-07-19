@@ -8,9 +8,11 @@ import { SVGs } from "../../assets"
 import styles from "./Header.module.css"
 import { NavBar } from "../NavBar/NavBar";
 import { NavLink } from "react-router-dom";
+import { useCartStore } from "../../store";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const {cartData} =useCartStore()
 
   const toggleMobileMenu = () => {    
     setShowMenu(!showMenu);
@@ -33,7 +35,13 @@ export const Header = () => {
           <IoSearchOutline className={clsx(styles.nav_icon)} />
           <LuUser className={clsx(styles.nav_icon)} />
           <NavLink  to={'/cart'}>
+          <div className="relative">
           <BsBucket className={clsx(styles.nav_icon)} />
+          {
+            cartData.length > 0 &&
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 ">{cartData.length}</div>          
+          }
+          </div>
           </NavLink>
           <IoHeartOutline className={clsx(styles.nav_icon, styles.nav_icon_mobile)} />
           <button onClick={toggleMobileMenu}>
