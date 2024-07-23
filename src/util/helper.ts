@@ -27,3 +27,8 @@ export const decreaseQtyHandler = (cartData: CartDataType[], pId: number) => {
   })
   return decreaseProductQty
 }
+
+export const checkProductIsExist = (cartList: CartDataType[], pId: number) => {
+  const isProductExist = cartList.find(val => val.pId === pId)
+  return isProductExist !== undefined
+}

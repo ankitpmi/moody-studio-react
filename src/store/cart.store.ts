@@ -15,7 +15,7 @@ export const useCartStore = create<State & Actions>()(
   devtools((set) => ({
     cartData: [],
     setCartData(productId) {
-      set((state) => {
+      set((state) => {        
         const cartObj: CartDataType = {
           id: generateCartItemId(state.cartData),
           pId: productId,
@@ -44,3 +44,4 @@ const generateCartItemId = (cartList: CartDataType[]) => {
     return cId
   }
 }
+

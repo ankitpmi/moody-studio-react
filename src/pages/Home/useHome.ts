@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { API,ProductsRes } from "../../services";
 import { FilterMenuData, FilterMenuType } from "../../constants";
 import { useCartStore, useProductsStore } from "../../store";
+import { checkProductIsExist,increaseQtyHandler } from "../../util";
 
 const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] => {
   return data.map((item) => {
@@ -18,7 +19,7 @@ const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] =
 export const useHome = () => {
 
   const {productData,setProductData} = useProductsStore()
-  const {setCartData} = useCartStore()
+  const {setCartData,cartData,updateCartData} = useCartStore()
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
@@ -29,9 +30,15 @@ export const useHome = () => {
 
   const onClickCartBtn = useCallback(
     (productId: number) => {
-      setCartData(productId)
+      const isProductExist = checkProductIsExist(cartData,productId)      
+      if (!isProductExist) {        
+        setCartData(productId)
+      }else {
+        const increaseProductQty = increaseQtyHandler(cartData, productId)
+        updateCartData(increaseProductQty)
+      }
     },
-    [setCartData],
+    [cartData, setCartData],
   )
   
 
@@ -116,3 +123,5 @@ export const useHome = () => {
     onClickCartBtn
   }
 }
+
+

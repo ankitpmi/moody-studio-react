@@ -19,11 +19,8 @@ const Home = () => {
           </div>
           <div className={styles.contain_view_columns}>           
             <h1 className={clsx(styles.page_heading)}>Products</h1>
-            <p className={clsx(styles.content_Text, 'my-9')}>Its easy to transform your bedroom interior with our great selection of accessories.</p>
-            
-              <ProductView products={productList} isLoading={isLoading} onClickCartBtn={onClickCartBtn} />
-             
-                       
+            <p className={clsx(styles.content_Text, 'my-9')}>Its easy to transform your bedroom interior with our great selection of accessories.</p>            
+              <ProductView products={productList} isLoading={isLoading} onClickCartBtn={onClickCartBtn} />                                    
           </div>
         </div>
         </div>
