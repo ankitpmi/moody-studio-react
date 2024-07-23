@@ -5,7 +5,7 @@ import OrderSummary from "./views/OrderSummary"
 import { NoDataFound } from "../../components"
 
 const Cart = () => {
-  const { cartList, sumOfAllProducts, removeProductHandler } = useCart()
+  const { cartList, sumOfAllProducts, removeProductHandler,decreaseQty,increaseQty } = useCart()
   const renderCartList = useCallback(() => {
     return cartList.map((cart) => {
       return (
@@ -16,10 +16,12 @@ const Cart = () => {
           productAmt={cart.price}
           productName={cart.name}
           productQty={cart.qty}
+          increaseQtyHandler={() => increaseQty(cart.pId)}
+          decreaseQtyHandler={() => decreaseQty(cart.pId)}
         />
       )
     })
-  }, [cartList, removeProductHandler])
+  }, [cartList, decreaseQty, increaseQty, removeProductHandler])
 
   return (
     <div className="container mx-auto px-6">
