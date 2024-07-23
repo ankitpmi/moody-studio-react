@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useCartStore, useProductsStore } from "../../store"
 import { CartProductTypr } from "../../types";
+import { increaseQtyHandler,decreaseQtyHandler } from "../../util";
 
 
 
 export const useCart = () => {
-  const {cartData,updateCartData} = useCartStore()
-  console.log('cartData: ', cartData);
+  const {cartData,updateCartData} = useCartStore()  
   const {productData} = useProductsStore()
   const [cartList, setCartList] = useState<CartProductTypr[] | []>([])
   const [sumOfAllProducts, setSumOfAllProducts] = useState<number>(0)
@@ -64,34 +64,15 @@ export const useCart = () => {
 
   const increaseQty = useCallback(
     (pId: number) => {
-      const increaseProductQty = cartData.map(val => {
-        if (val.pId === pId) {   
-        return {
-          ...val,
-          qty: val.qty +1
-        }
-      } else {
-        return val
-      }
-      })
+      const increaseProductQty = increaseQtyHandler(cartData, pId)
       updateCartData(increaseProductQty)
     },
     [cartData, updateCartData],
   )
   const decreaseQty = useCallback(
     (pId: number) => {
-      const increaseProductQty = cartData.map(val => {
-        if (val.pId === pId) {          
-          return {
-            ...val,
-            qty: val.qty > 1 ? val.qty -1 : val.qty
-          }
-        }else {
-          return val
-        }
-      })
-      updateCartData(increaseProductQty)
-      
+      const increaseProductQty = decreaseQtyHandler(cartData, pId)
+      updateCartData(increaseProductQty)      
     },
     [cartData, updateCartData],
   )
