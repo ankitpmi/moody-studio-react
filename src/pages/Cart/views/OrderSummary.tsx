@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 
 interface OrderSummaryProps {  
@@ -6,10 +6,20 @@ interface OrderSummaryProps {
 }
 
 const OrderSummary = ({totalAmtOfProducts} : OrderSummaryProps) => {
+
+
   const savingsAmt = 20
   const deliveryCharges = 0
-  const tax = 0
-  const grandTotal = (totalAmtOfProducts - savingsAmt) + deliveryCharges + tax
+  
+  
+  const subTotal = totalAmtOfProducts - savingsAmt
+  const calculateTax = useMemo(() => {
+    const stax = 0.03;
+    const tax = subTotal * stax;
+    return tax
+  }, [subTotal])
+  const grandTotal = subTotal + deliveryCharges + calculateTax
+
   return (
     <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
     <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
@@ -33,8 +43,8 @@ const OrderSummary = ({totalAmtOfProducts} : OrderSummaryProps) => {
           </dl>
 
           <dl className="flex items-center justify-between gap-4">
-            <dt className="text-base font-normal text-gray-500">Tax</dt>
-            <dd className="text-base font-medium text-gray-900">${tax}</dd>
+            <dt className="text-base font-normal text-gray-500">Tax (0.03%)</dt>
+            <dd className="text-base font-medium text-gray-900">${calculateTax}</dd>
           </dl>
         </div>
 
