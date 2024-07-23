@@ -29,28 +29,28 @@ const OrderSummary = ({totalAmtOfProducts} : OrderSummaryProps) => {
         <div className="space-y-2">
           <dl className="flex items-center justify-between gap-4">
             <dt className="text-base font-normal text-gray-500">Original price</dt>
-            <dd className="text-base font-medium text-gray-900">${totalAmtOfProducts}</dd>
+            <dd className="text-base font-medium text-gray-900">${totalAmtOfProducts.toFixed(2)}</dd>
           </dl>
 
           <dl className="flex items-center justify-between gap-4">
             <dt className="text-base font-normal text-gray-500">Savings</dt>
-            <dd className="text-base font-medium text-green-600">-${savingsAmt}</dd>
+            <dd className="text-base font-medium text-green-600">-${savingsAmt.toFixed(2)}</dd>
           </dl>
 
           <dl className="flex items-center justify-between gap-4">
             <dt className="text-base font-normal text-gray-500">Store Pickup</dt>
-            <dd className="text-base font-medium text-gray-900">${deliveryCharges}</dd>
+            <dd className="text-base font-medium text-gray-900">${deliveryCharges.toFixed(2)}</dd>
           </dl>
 
           <dl className="flex items-center justify-between gap-4">
             <dt className="text-base font-normal text-gray-500">Tax (0.03%)</dt>
-            <dd className="text-base font-medium text-gray-900">${calculateTax}</dd>
+            <dd className="text-base font-medium text-gray-900">${calculateTax.toFixed(2)}</dd>
           </dl>
         </div>
 
         <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2">
           <dt className="text-base font-bold text-gray-900">Total</dt>
-          <dd className="text-base font-bold text-gray-900">${grandTotal}</dd>
+          <dd className="text-base font-bold text-gray-900">${grandTotal.toFixed(2)}</dd>
         </dl>
       </div>
 

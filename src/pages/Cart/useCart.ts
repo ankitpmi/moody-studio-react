@@ -3,8 +3,10 @@ import { useCartStore, useProductsStore } from "../../store"
 import { CartProductTypr } from "../../types";
 
 
+
 export const useCart = () => {
-  const {cartData} = useCartStore()
+  const {cartData,updateCartData} = useCartStore()
+  // console.log('cartData: ', cartData);
   const {productData} = useProductsStore()
   const [cartList, setCartList] = useState<CartProductTypr[] | []>([])
   const [sumOfAllProducts, setSumOfAllProducts] = useState<number>(0)
@@ -51,10 +53,19 @@ export const useCart = () => {
     sumOfAllProductsHandler()      
   }, [cartList, sumOfAllProductsHandler])
   
-  
+  const removeProductHandler = useCallback(
+    (pId: number) => {                  
+      setCartList(prevCartList => prevCartList.filter(item => item.pId !== pId))
+      const productsList = cartData.filter(item => item.pId !== pId)
+      updateCartData(productsList)
+    },
+    [cartData, updateCartData],
+  )
+
 
   return{
     cartList,
-    sumOfAllProducts
+    sumOfAllProducts,
+    removeProductHandler
   }
 }

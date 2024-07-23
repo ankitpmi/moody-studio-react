@@ -1,0 +1,12 @@
+
+.no_data_container {
+  @apply text-center
+}
+
+.no_data_title {
+  @apply text-[36px] font-medium text-[#323334]
+}
+
+.no_data_found_img {
+  @apply h-60 w-60 mx-auto
+}

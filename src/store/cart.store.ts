@@ -1,38 +1,37 @@
-import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
-import { CartDataType } from '../types';
-
+import { create } from "zustand"
+import { devtools } from "zustand/middleware"
+import { CartDataType } from "../types"
 
 type State = {
-  cartData: CartDataType[] | [];
-};
+  cartData: CartDataType[] | []
+}
 
-type Actions = {  
-  setCartData:(productId: number) => void
-};
+type Actions = {
+  setCartData: (productId: number) => void
+  updateCartData: (products: CartDataType[]) => void
+}
 
 export const useCartStore = create<State & Actions>()(
-  devtools(
-    set => ({
-      cartData: [],
-      setCartData(productId) {      
-        set(state => {          
-          const cartObj: CartDataType = {
-            id: generateCartItemId(state.cartData),
-            pId: productId,
-            qty: 1
-          }
-
-          return(
-          {
-          ...state,
-          cartData: [...state.cartData, cartObj]
+  devtools((set) => ({
+    cartData: [],
+    setCartData(productId) {
+      set((state) => {
+        const cartObj: CartDataType = {
+          id: generateCartItemId(state.cartData),
+          pId: productId,
+          qty: 1,
         }
-      )
-    })
-      },
-    })
-  )
+        return {
+          ...state,
+          cartData: [...state.cartData, cartObj],
+        }
+      })
+    },
+    updateCartData:(products) => set(state => ({
+      ...state,
+      cartData: products
+    }))
+  }))
 )
 
 const generateCartItemId = (cartList: CartDataType[]) => {
@@ -41,7 +40,7 @@ const generateCartItemId = (cartList: CartDataType[]) => {
     let revId = cartList[cartList.length - 1].id
     cId = ++revId
     return cId
-  }else {
+  } else {
     return cId
   }
 }

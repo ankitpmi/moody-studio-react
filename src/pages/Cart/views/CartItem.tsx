@@ -5,9 +5,10 @@ interface CartItemProps {
   productName: string
   productQty: number
   productAmt: number
+  removeBtnHandler:() => void
 }
 
-const CartItem = ({productImg,productAmt,productName,productQty}: CartItemProps) => {
+const CartItem = ({productImg,productAmt,productName,productQty, removeBtnHandler}: CartItemProps) => {
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6">
     <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
@@ -46,7 +47,7 @@ const CartItem = ({productImg,productAmt,productName,productQty}: CartItemProps)
             Add to Favorites
           </button>
 
-          <button type="button" className="inline-flex items-center text-sm font-medium text-red-600 hover:underline">
+          <button onClick={removeBtnHandler} type="button" className="inline-flex items-center text-sm font-medium text-red-600 hover:underline">
             <svg className="me-1.5 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
             </svg>
