@@ -43,7 +43,7 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
 
   return (
     <div className={clsx(styles.nav_container)}>
-      <hr className={clsx(styles.nav_divider, !showMenu && styles.hide)} />
+      <hr className={clsx(styles.nav_divider, showMenu && styles.hide)} />
       <div className={clsx(styles.nav_link_view)}>
         <div className={clsx(styles.row)}>{renderLink()}</div>
       </div>
@@ -60,13 +60,15 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
         
         <div ref={contentRef}   className={clsx(styles.mobile_menu_container, showMenu ? styles.menu_open : styles.menu_close)}>
           <div className='flex flex-col justify-center items-center w-full'>
-            {renderLink()}
-            
+            {renderLink()}                    
+          </div>
+          <div className="w-full bg-slate-300 px-7 text-center relative">
+
           </div>
         </div>
         </>
       }
-      <hr className={clsx(styles.nav_divider, !showMenu && styles.hide)} />
+      <hr className={clsx(styles.nav_divider, showMenu && styles.hide)} />
     </div>
   )
 }
