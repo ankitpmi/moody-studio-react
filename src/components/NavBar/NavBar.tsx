@@ -43,10 +43,12 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
 
   return (
     <div className={clsx(styles.nav_container)}>
-      <hr className={clsx(styles.nav_divider, showMenu && styles.hide)} />
+      <hr className={clsx(styles.nav_divider, styles.hide)} />
       <div className={clsx(styles.nav_link_view)}>
         <div className={clsx(styles.row)}>{renderLink()}</div>
       </div>
+      <hr className={clsx(styles.nav_divider,styles.hide)} />
+
       {/* <div
         ref={contentRef}
         style={{ maxHeight: showMenu ? contentHeight : "0px" }}
@@ -68,7 +70,6 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
         </div>
         </>
       }
-      <hr className={clsx(styles.nav_divider, showMenu && styles.hide)} />
     </div>
   )
 }
