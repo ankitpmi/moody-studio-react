@@ -17,10 +17,7 @@ export const Main = () => {
                   key={route.path}
                   path={route.path}
                   element={
-                    <route.component
-                    // isLoggedIn={isLoggedIn}
-                    // setUsername={"harshinventory"}
-                    // // username={"harshinventory"}
+                    <route.component                   
                     />
                   }
                 />
