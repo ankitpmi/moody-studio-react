@@ -8,15 +8,20 @@ import { SVGs } from "../../assets"
 import styles from "./Header.module.css"
 import { NavBar } from "../NavBar/NavBar";
 import { NavLink } from "react-router-dom";
-import { useCartStore } from "../../store";
+import { useCartStore, useUserStore } from "../../store";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const {cartData} =useCartStore()
+  const {setIsLoggedIn} = useUserStore()
 
   const toggleMobileMenu = () => {    
     setShowMenu(!showMenu);
   };
+
+  const onClikkUserIcon = () => {
+    setIsLoggedIn(false)
+  }
 
   return (
     <nav className={clsx(styles.nav_main)}>
@@ -33,7 +38,9 @@ export const Header = () => {
           </div>    
           <div className={clsx(styles.row)}>
           <IoSearchOutline className={clsx(styles.nav_icon)} />
+          <button onClick={onClikkUserIcon}>
           <LuUser className={clsx(styles.nav_icon)} />
+          </button>
           <NavLink  to={'/cart'}>
           <div className="relative">
           <BsBucket className={clsx(styles.nav_icon)} />

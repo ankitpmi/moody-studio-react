@@ -1,6 +1,8 @@
 import React from 'react'
+import { useLogin } from './useLogin'
 
 const Login = () => {
+  const {onPressLoginBtn} = useLogin()
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -57,9 +59,8 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <button type="submit"
+                    <button onClick={onPressLoginBtn} type="button"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-
                         Sign in
                     </button>
                 </div>

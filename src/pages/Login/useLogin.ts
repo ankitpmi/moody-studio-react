@@ -1,4 +1,9 @@
+import { useUserStore } from "../../store";
 
 export const useLogin = () => {
-  return{}
+  const {setIsLoggedIn} = useUserStore()
+  const onPressLoginBtn = () => {
+    setIsLoggedIn(true)    
+  }
+  return{onPressLoginBtn}
 }
