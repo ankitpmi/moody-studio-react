@@ -1,14 +1,16 @@
 import React from "react";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { Outlet } from "react-router-dom";
 
-interface LayoutProps extends React.PropsWithChildren {}
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = () => {
   return (
     <div className="bg-white">
-      <Header />
-      <div className="h-full">{children}</div>
+      <Header />      
+      <div className="h-full">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
