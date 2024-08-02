@@ -1,4 +1,4 @@
-import { Home, Cart } from "../pages";
+import { Home, Cart, Login } from "../pages";
 
 
 export const appRoutes = [
@@ -9,5 +9,9 @@ export const appRoutes = [
   {
     path: "/cart",
     component: Cart,
+  },
+  {
+    path: "/login",
+    component: Login,
   }
 ]
