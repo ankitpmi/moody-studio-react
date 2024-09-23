@@ -3,16 +3,67 @@ import clsx from "clsx"
 import { NavLink } from "react-router-dom"
 import styles from "./NavBar.module.css"
 
-const NavLinks = [
-  "HOME",
-  "STORE",
-  "ACCESSORIES",
-  "BRAND",
-  "PAGES",
-  "ABOUT US",
-  "NEWS",
-  "CONTACT US ",
+
+interface NavLinksType {
+  id: number,
+  label: string,
+  path: string
+}
+
+const NavLinks: NavLinksType[] = [
+  {
+    id:1, 
+    label: 'HOME',
+    path: '/'
+  },
+  {
+    id:2, 
+    label: 'STORE',
+    path: '/'
+  },
+  {
+    id:3, 
+    label: 'ACCESSORIES',
+    path: '/'
+  },
+  {
+    id:4, 
+    label: 'BRAND',
+    path: '/'
+  },
+  {
+    id:5, 
+    label: 'PAGES',
+    path: '/'
+  },
+  {
+    id:6, 
+    label: 'ABOUT US',
+    path: '/'
+  },
+  {
+    id:7, 
+    label: 'NEWS',
+    path: '/'
+  },
+  {
+    id:8, 
+    label: 'THEME EXAMPLE',
+    path: '/theme_example'
+  },
+  
 ]
+
+// const NavLinks = [
+//   "HOME",
+//   "STORE",
+//   "ACCESSORIES",
+//   "BRAND",
+//   "PAGES",
+//   "ABOUT US",
+//   "NEWS",
+//   "CONTACT US ",
+// ]
 
 interface NavBarProps {
   showMenu: boolean
@@ -32,10 +83,10 @@ export const NavBar = ({ showMenu }: NavBarProps) => {
     return NavLinks.map((val) => {
       return (
         <NavLink
-          key={val.toString()}
+          key={val.id.toString()}
           className={clsx(styles.link_text, styles.link_text_mobile)}
-          to={"/"}>
-          {val}
+          to={val.path}>
+          {val.label}
         </NavLink>
       )
     })

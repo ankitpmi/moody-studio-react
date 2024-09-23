@@ -7,13 +7,15 @@ import {
 } from "react-router-dom"
 
 import { ErrorBoundary, Layout, ProtectedLayout } from "../components"
-import { appRoutes,authRoutes } from "./routes"
+import { appRoutes, authRoutes } from "./routes"
+import { ThemeExample } from "../pages"
+import { applyTheme,lightTheme } from "../theme"
 
 export const Main = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route element={<ProtectedLayout  />}>
+        <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Layout />}>
             {appRoutes.map((route) => {
               return (
@@ -23,17 +25,22 @@ export const Main = () => {
                   element={<route.component />}
                 />
               )
-            })}          
+            })}
+            <Route path="/theme_example" Component={ThemeExample} loader={() => {
+              console.log('call loader');
+              applyTheme(lightTheme);
+              return null
+            }} />
           </Route>
-          
+
         </Route>
         {authRoutes.map((authRoute) => {
-          return(
+          return (
             <Route
-            key={authRoute.path}
-            path={authRoute.path}
-            element={<authRoute.component />}
-          />
+              key={authRoute.path}
+              path={authRoute.path}
+              element={<authRoute.component />}
+            />
           )
         })}
       </>

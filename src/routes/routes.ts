@@ -9,7 +9,8 @@ export const appRoutes = [
   {
     path: "/cart",
     component: Cart,
-  }
+  },
+  
 ]
 
 export const authRoutes = [
