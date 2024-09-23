@@ -4,10 +4,10 @@ import { useHome } from './useHome'
 import styles from './Home.module.css'
 import ProductView from './views/ProductView';
 import FilterMenu from './views/FilterMenu';
-import { OfferBanner } from '../../components';
+import { ActionSheet, OfferBanner } from '../../components';
 
 const Home = () => {
-  const {productList,filterMenuList,handleToggle, isLoading, onClickCartBtn} = useHome()
+  const {productList,filterMenuList,handleToggle, isLoading, onClickCartBtn, actionSheetRef, handleActionSheetOpen} = useHome()
   
   return (
     <div className={clsx(styles.home_container)}>
@@ -15,7 +15,8 @@ const Home = () => {
       <div className={clsx(styles.grid_container)}>
         <div className={clsx(styles.grid_layout)}>
           <div className={styles.filter_view_column}>
-            <FilterMenu filterMenuList={filterMenuList}  handleToggle={handleToggle} />
+            <FilterMenu filterMenuList={filterMenuList} handleActionSheetOpen={handleActionSheetOpen} handleToggle={handleToggle} />
+            
           </div>
           <div className={styles.contain_view_columns}>           
             <h1 className={clsx(styles.page_heading)}>Products</h1>
@@ -24,6 +25,12 @@ const Home = () => {
           </div>
         </div>
         </div>
+        <ActionSheet ref={actionSheetRef}>
+        <div style={{height: 500}}>
+          <h4>🙂 Hi React Devs!</h4>
+          {/* <button onClick={handleClose}>Close</button> */}
+        </div>
+      </ActionSheet>
     </div>
   )
 }

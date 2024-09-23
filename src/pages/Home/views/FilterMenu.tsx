@@ -7,9 +7,10 @@ import { Dropdown } from "../../../components"
 interface FilterMenuProps {
   filterMenuList: FilterMenuType[]
   handleToggle: (id: number) => void
+  handleActionSheetOpen: () => void
 }
 
-const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
+const FilterMenu = ({ filterMenuList, handleToggle, handleActionSheetOpen }: FilterMenuProps) => {
   
   return (
     <div className={clsx(styles.filter_menu_container)}>
@@ -33,7 +34,7 @@ const FilterMenu = ({ filterMenuList, handleToggle }: FilterMenuProps) => {
       {/* For small devices */}
       <div className={clsx(styles.filter_menu_render_view_responsive)}>       
         {filterMenuList.map((item) => {
-          return <Dropdown key={item.id} item={item} onToggle={handleToggle} />
+          return <Dropdown key={item.id} item={item} onToggle={handleToggle} actionSheetHandler={handleActionSheetOpen} />
         })}
       </div>
     </div>

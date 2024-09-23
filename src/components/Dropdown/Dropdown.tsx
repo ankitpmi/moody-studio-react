@@ -6,10 +6,11 @@ import clsx from "clsx"
 
 interface DropdownProps {
   item: FilterMenuType
-  onToggle: (id: number) => void
+  onToggle: (id: number) => void;
+  actionSheetHandler?:() => void
 }
 
-export const Dropdown = React.memo(({ item, onToggle }: DropdownProps) => {
+export const Dropdown = React.memo(({ item, onToggle, actionSheetHandler }: DropdownProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false)
   return (
     <div className={clsx(styles.dropdown_container)}>
@@ -17,9 +18,10 @@ export const Dropdown = React.memo(({ item, onToggle }: DropdownProps) => {
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         className={clsx(styles.dropdown_view)}
-        onClick={() => {
-          setIsDropDownOpen((prevState) => !prevState)
-        }}
+        // onClick={() => {
+        //   setIsDropDownOpen((prevState) => !prevState)
+        // }}
+        onClick={actionSheetHandler && actionSheetHandler}
         type="button">
         {item.label}
 

@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { API,ProductsRes } from "../../services";
 import { FilterMenuData, FilterMenuType } from "../../constants";
 import { useCartStore, useProductsStore } from "../../store";
 import { checkProductIsExist,increaseQtyHandler } from "../../util";
+import { ActionSheetRef } from "../../components";
 
 const toggleSelection = (data: FilterMenuType[], id: number): FilterMenuType[] => {
   return data.map((item) => {
@@ -23,6 +24,7 @@ export const useHome = () => {
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
+  const actionSheetRef = useRef<ActionSheetRef>();
 
   const handleToggle = useCallback((id: number) => {    
     setFilterMenuList((prevData) => toggleSelection(prevData, id));
@@ -38,7 +40,7 @@ export const useHome = () => {
         updateCartData(increaseProductQty)
       }
     },
-    [cartData, setCartData],
+    [cartData, setCartData, updateCartData],
   )
   
 
@@ -114,13 +116,25 @@ export const useHome = () => {
     getAllProducs()    
   }, [getAllProducs])
   
+  const handleActionSheetOpen = () => {
+    console.log('111');
+    
+    actionSheetRef?.current?.open();
+  };
+
+  const handleActionSheetClose = () => {
+    actionSheetRef?.current?.close();
+  };
 
   return{
     productList,
     filterMenuList,
     handleToggle,
     isLoading,
-    onClickCartBtn
+    onClickCartBtn,
+    actionSheetRef,
+    handleActionSheetClose,
+    handleActionSheetOpen
   }
 }
 
