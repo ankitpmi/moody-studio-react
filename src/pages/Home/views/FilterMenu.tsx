@@ -2,6 +2,7 @@ import React from "react"
 import clsx from "clsx"
 import styles from "./FilterMenu.module.css"
 import { FilterMenuType } from "../../../constants"
+import { IoIosArrowDown } from "react-icons/io"
 import { Dropdown } from "../../../components"
 
 interface FilterMenuProps {
@@ -10,8 +11,13 @@ interface FilterMenuProps {
   handleActionSheetOpen: () => void
 }
 
-const FilterMenu = ({ filterMenuList, handleToggle, handleActionSheetOpen }: FilterMenuProps) => {
-  
+const FilterMenu = ({
+  filterMenuList,
+  handleToggle,
+  handleActionSheetOpen,
+}: FilterMenuProps) => {
+  console.log("filterMenuList :: ", filterMenuList)
+
   return (
     <div className={clsx(styles.filter_menu_container)}>
       <div className={clsx(styles.filter_menu_render_view)}>
@@ -32,9 +38,17 @@ const FilterMenu = ({ filterMenuList, handleToggle, handleActionSheetOpen }: Fil
         })}
       </div>
       {/* For small devices */}
-      <div className={clsx(styles.filter_menu_render_view_responsive)}>       
+      <div className={clsx(styles.filter_menu_render_view_responsive)}>
         {filterMenuList.map((item) => {
-          return <Dropdown key={item.id} item={item} onToggle={handleToggle} actionSheetHandler={handleActionSheetOpen} />
+          // return <Dropdown key={item.id} item={item} onToggle={handleToggle} actionSheetHandler={handleActionSheetOpen} />
+          return (
+            <button
+              onClick={handleActionSheetOpen}
+              className={clsx(styles.filter_menu_btn_for_small_device)}>
+              <span>{item.label}</span>
+              <IoIosArrowDown className={clsx(styles.dropdown_icon)} />
+            </button>
+          )
         })}
       </div>
     </div>

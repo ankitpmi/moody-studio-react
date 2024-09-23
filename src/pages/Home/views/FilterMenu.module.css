@@ -23,3 +23,11 @@
 .filter_menu_render_view_responsive::-webkit-scrollbar {
   display: none;
 }
+
+.dropdown_icon {
+  @apply w-4 h-4 ml-4
+}
+
+.filter_menu_btn_for_small_device {
+  @apply flex items-center space-x-1 mx-1 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 font-normal text-sm text-[#323334]
+}
