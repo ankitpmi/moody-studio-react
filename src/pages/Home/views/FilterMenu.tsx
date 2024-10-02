@@ -9,14 +9,15 @@ interface FilterMenuProps {
   filterMenuList: FilterMenuType[]
   handleToggle: (id: number) => void
   handleActionSheetOpen: () => void
+  selectFilterMenuHandler: (menu: FilterMenuType) => void
 }
 
 const FilterMenu = ({
   filterMenuList,
   handleToggle,
   handleActionSheetOpen,
-}: FilterMenuProps) => {
-  console.log("filterMenuList :: ", filterMenuList)
+  selectFilterMenuHandler
+}: FilterMenuProps) => {  
 
   return (
     <div className={clsx(styles.filter_menu_container)}>
@@ -43,7 +44,11 @@ const FilterMenu = ({
           // return <Dropdown key={item.id} item={item} onToggle={handleToggle} actionSheetHandler={handleActionSheetOpen} />
           return (
             <button
-              onClick={handleActionSheetOpen}
+            key={item.id}
+              onClick={() => {
+                selectFilterMenuHandler(item);
+                handleActionSheetOpen()
+              }}
               className={clsx(styles.filter_menu_btn_for_small_device)}>
               <span>{item.label}</span>
               <IoIosArrowDown className={clsx(styles.dropdown_icon)} />
@@ -129,5 +134,6 @@ const RenderColors: React.FC<{
     </div>
   )
 })
+
 
 export default React.memo(FilterMenu)

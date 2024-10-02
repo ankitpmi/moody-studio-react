@@ -24,6 +24,7 @@ export const useHome = () => {
   const [productList, setProductList] = useState<[]| ProductsRes[]>([])
   const [filterMenuList, setFilterMenuList] = useState<FilterMenuType[] | []>(FilterMenuData)
   const [isLoading, setIsLoading] = useState(false)
+  const [selectedFilterMenu, setSelectedFilterMenu] = useState<FilterMenuType | null>(null)
   const actionSheetRef = useRef<ActionSheetRef>();
 
   const handleToggle = useCallback((id: number) => {    
@@ -126,6 +127,13 @@ export const useHome = () => {
     actionSheetRef?.current?.close();
   };
 
+  const selectFilterMenuHandler = (menu: FilterMenuType) => {
+    setSelectedFilterMenu(menu)
+  }
+
+  console.log('selectedFilterMenu :::: ', selectedFilterMenu);
+  
+
   return{
     productList,
     filterMenuList,
@@ -134,7 +142,9 @@ export const useHome = () => {
     onClickCartBtn,
     actionSheetRef,
     handleActionSheetClose,
-    handleActionSheetOpen
+    handleActionSheetOpen,
+    selectedFilterMenu,
+    selectFilterMenuHandler
   }
 }
 
