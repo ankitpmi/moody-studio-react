@@ -1,46 +1,64 @@
-import React from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import clsx from "clsx"
 import { FilterMenuType } from "../../constants"
 
 interface FilterMenuItemMobileProps {
+  filterMenuList: FilterMenuType[]
   menuItem: FilterMenuType
   handleToggle: (id: number) => void
 }
 
+interface RenderLabelProps extends Omit<FilterMenuItemMobileProps, 'filterMenuList'> { }
+interface RenderColorProps extends Omit<FilterMenuItemMobileProps, 'filterMenuList'> { }
+
 export const FilterMenuItemMobile = ({
   menuItem,
   handleToggle,
+  filterMenuList
 }: FilterMenuItemMobileProps) => {
+  const [selectedCatMenu, setSelectedCatMenu] = useState<FilterMenuType>(menuItem)
+  const getMenuData = useCallback(() => {
+    const getSelectedMenu: FilterMenuType | undefined = filterMenuList.find(item => item.id === menuItem.id)
+    if (getSelectedMenu) {
+      setSelectedCatMenu(getSelectedMenu)
+    }
+  }, [filterMenuList, menuItem.id])
+
+  useEffect(() => {
+    getMenuData()
+  }, [getMenuData])
+
+
   return (
     <div className="h-full p-6">
       <label
         className={clsx(
           "font-bold text-[18px] text-[#323334] mt-6 mb-2 capitalize"
         )}>
-        {menuItem.label}
+        {selectedCatMenu.label}
       </label>
       <div className="grid grid-cols-4 gap-4  mt-8">
-        {menuItem.label === "Color"
-          ? menuItem.items?.map((val) => {
-              return (
-                <div>
-                  <RenderColor menuItem={val} handleToggle={handleToggle} />
-                </div>
-              )
-            })
-          : menuItem.items?.map((val) => {
-              return (
-                <div>
-                  <RenderLabel menuItem={val} handleToggle={handleToggle} />
-                </div>
-              )
-            })}
+        {selectedCatMenu.label === "Color"
+          ? selectedCatMenu.items?.map((val) => {
+            return (
+              <div>
+                <RenderColor menuItem={val} handleToggle={handleToggle} />
+              </div>
+            )
+          })
+          : selectedCatMenu.items?.map((val) => {
+            return (
+              <div>
+                <RenderLabel menuItem={val} handleToggle={handleToggle} />
+              </div>
+            )
+          })}
       </div>
     </div>
   )
 }
 
-const RenderLabel = ({ handleToggle, menuItem }: FilterMenuItemMobileProps) => {
+const RenderLabel = ({ handleToggle, menuItem }: RenderLabelProps) => {
   return (
     <button
       onClick={() => handleToggle(menuItem.id)}
@@ -55,7 +73,7 @@ const RenderLabel = ({ handleToggle, menuItem }: FilterMenuItemMobileProps) => {
     </button>
   )
 }
-const RenderColor = ({ handleToggle, menuItem }: FilterMenuItemMobileProps) => {
+const RenderColor = ({ handleToggle, menuItem }: RenderColorProps) => {
   return (
     <div
       className={clsx(

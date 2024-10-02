@@ -117,9 +117,7 @@ export const useHome = () => {
     getAllProducs()    
   }, [getAllProducs])
   
-  const handleActionSheetOpen = () => {
-    console.log('111');
-    
+  const handleActionSheetOpen = () => {    
     actionSheetRef?.current?.open();
   };
 
@@ -131,7 +129,6 @@ export const useHome = () => {
     setSelectedFilterMenu(menu)
   }
 
-  console.log('selectedFilterMenu :::: ', selectedFilterMenu);
   
 
   return{

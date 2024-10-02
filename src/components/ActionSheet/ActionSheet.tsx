@@ -48,7 +48,7 @@ export const ActionSheet = React.forwardRef<
       closeOnBgTap = true,
       bgTransition = "opacity 0.5s ease-in-out, z-index 0.5s ease-in-out",
       className = "action-sheet",
-      sheetTransition = "transform 0.5s linear",
+      sheetTransition = "transform 0.3s linear",
       reverse = false,
     },
     ref

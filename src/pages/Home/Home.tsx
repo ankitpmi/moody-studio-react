@@ -49,12 +49,9 @@ const Home = () => {
       </div>
       <ActionSheet ref={actionSheetRef}>
         <div style={{ height: 500 }}>
-          
-            <FilterMenuItemMobile menuItem={selectedFilterMenu!} handleToggle={handleToggle} /> 
-          
-          
-          {/* <h4>🙂 Hi React Devs!</h4> */}
-          {/* <button onClick={handleClose}>Close</button> */}
+          {
+            selectedFilterMenu ? <FilterMenuItemMobile filterMenuList={filterMenuList} menuItem={selectedFilterMenu} handleToggle={handleToggle} /> : null
+          }          
         </div>
       </ActionSheet>
     </div>
