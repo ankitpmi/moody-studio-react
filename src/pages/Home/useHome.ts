@@ -116,6 +116,23 @@ export const useHome = () => {
   useEffect(() => {    
     getAllProducs()    
   }, [getAllProducs])
+
+  
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      console.log('window.innerWidth :: ', window.innerWidth);
+        if (window.innerWidth > 1023) {
+          actionSheetRef?.current?.close();
+        }
+      });
+  
+    return () => {
+      window.removeEventListener("resize", () => {
+          console.log('REMOVE LISTNER');          
+      })
+    }
+  }, [])
+  
   
   const handleActionSheetOpen = () => {    
     actionSheetRef?.current?.open();
